@@ -6,7 +6,12 @@ include_directories(
 )
 
 add_library(UnbelievableEngine6
-	src/UnbelievableEngine6/dummy.cpp src/UnbelievableEngine6/dummy.h
+	src/UnbelievableEngine6/UnbelievableEngine6.h
+	src/UnbelievableEngine6/Core.cpp 
+	src/UnbelievableEngine6/Core.h
+	src/UnbelievableEngine6/Entity.h
+	src/UnbelievableEngine6/Component.h
+
 )
 
 add_executable(demo
