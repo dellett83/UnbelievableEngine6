@@ -3,9 +3,18 @@
 
 using namespace UnbelievableEngine6;
 
-struct Test : public Component
+struct Player : public Component
 {
 	int m_temp;
+	void on_initialize()
+	{
+		printf("dan");
+	}
+
+	void on_tick()
+	{
+		printf("dan");
+	}
 };
 
 int main() {
@@ -13,7 +22,7 @@ int main() {
 
 	std::shared_ptr<Entity> ent = core->add_entity();
 
-	ent->add_component<Test>();
+	ent->add_component<Player>();
 
 	core->start();
 
