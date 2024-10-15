@@ -3,7 +3,7 @@
 
 using namespace UnbelievableEngine6;
 
-struct Test : Component
+struct Test : public Component
 {
 	int m_temp;
 };
