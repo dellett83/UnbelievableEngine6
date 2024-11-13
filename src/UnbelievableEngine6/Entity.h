@@ -28,6 +28,7 @@ namespace UnbelievableEngine6
 		std::vector<std::shared_ptr<Component> > m_components;
 
 		void tick();
+		void on_render();
 
 	};
 

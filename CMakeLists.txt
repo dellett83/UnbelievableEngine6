@@ -11,6 +11,21 @@ link_directories(
 	${PROJECT_SOURCE_DIR}/contrib/cl-windows-x86_64/lib
 )
 
+add_library(rend 
+	src/rend/main.cpp
+	src/rend/Mesh.cpp
+	src/rend/Mesh.h
+	src/rend/Model.h
+	src/rend/RenderTexture.cpp
+	src/rend/RenderTexture.h
+	src/rend/Shader.cpp
+	src/rend/Shader.h
+	src/rend/Texture.cpp
+	src/rend/Texture.h
+)
+
+target_link_libraries(rend glew32 SDL2 opengl32)
+
 add_library(UnbelievableEngine6
 	src/UnbelievableEngine6/UnbelievableEngine6.h
 	src/UnbelievableEngine6/Core.cpp 
@@ -19,19 +34,15 @@ add_library(UnbelievableEngine6
 	src/UnbelievableEngine6/Entity.cpp
 	src/UnbelievableEngine6/Component.h
 	src/UnbelievableEngine6/Component.cpp
-
-	src/UnbelievableEngine6/main.cpp
-	src/UnbelievableEngine6/Mesh.cpp
-	src/UnbelievableEngine6/Mesh.h
-	src/UnbelievableEngine6/Model.h
-	src/UnbelievableEngine6/RenderTexture.cpp
-	src/UnbelievableEngine6/RenderTexture.h
-	src/UnbelievableEngine6/Shader.cpp
-	src/UnbelievableEngine6/Shader.h
-	src/UnbelievableEngine6/Texture.cpp
-	src/UnbelievableEngine6/Texture.h
-
+	src/UnbelievableEngine6/Transform.h
+	src/UnbelievableEngine6/Transform.cpp
+	src/UnbelievableEngine6/TriangleRenderer.h
+	src/UnbelievableEngine6/TriangleRenderer.cpp
+	src/UnbelievableEngine6/Window.h
+	src/UnbelievableEngine6/Window.cpp
 )
+
+target_link_libraries(UnbelievableEngine6 rend)
 
 add_executable(demo
 	src/demo/main.cpp

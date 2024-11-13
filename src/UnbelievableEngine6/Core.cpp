@@ -1,6 +1,9 @@
 #include "Core.h"
 #include "Entity.h"
+#include "Transform.h"
+#include "Window.h"
 
+#include <GL/glew.h>
 #include <iostream>
 
 namespace UnbelievableEngine6
@@ -9,6 +12,7 @@ namespace UnbelievableEngine6
 	std::shared_ptr<Core> Core::initialize()
 	{
 		std::shared_ptr<Core> rtn = std::make_shared<Core>();
+		rtn->m_window = std::make_shared<Window>(1920, 1080);
 		rtn->m_self = rtn;
 
 		return rtn;
@@ -20,6 +24,8 @@ namespace UnbelievableEngine6
 
 		rtn->m_self = rtn;
 		rtn->m_core = m_self;
+		rtn->add_component<Transform>();
+
 		m_entities.push_back(rtn);
 
 		std::cout << rtn->m_core.lock().get() << std::endl;
@@ -27,15 +33,41 @@ namespace UnbelievableEngine6
 		return rtn;
 	}
 
+	std::shared_ptr<Window> Core::window() const
+	{
+		return m_window;
+	}
 
 	void Core::start()
 	{
-		for (size_t i = 0; i < 25; ++i)
+		bool running = true;
+		while (running)
 		{
-			for (size_t ei = 0; ei < m_entities.size(); ++ei)
+			SDL_Event event = {};
+
+			while (SDL_PollEvent(&event))
 			{
-				m_entities.at(ei)->tick();
+				if (event.type == SDL_QUIT)
+				{
+					running = false;
+				}
 			}
+
+			for (size_t ent = 0; ent < m_entities.size(); ent++)
+			{
+				m_entities.at(ent)->tick();
+			}
+
+			glClearColor(1, 0, 0, 1);
+			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+
+			for (size_t ent = 0; ent < m_entities.size(); ent++)
+			{
+				m_entities.at(ent)->on_render();
+			}
+
+			SDL_GL_SwapWindow(m_window->m_Raw);
 		}
 	}
 

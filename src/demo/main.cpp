@@ -5,15 +5,12 @@ using namespace UnbelievableEngine6;
 
 struct Player : public Component
 {
-	int m_temp;
 	void on_initialize()
 	{
-		printf("dan");
 	}
 
 	void on_tick()
 	{
-		printf("dan");
 	}
 };
 
@@ -23,6 +20,8 @@ int main() {
 	std::shared_ptr<Entity> ent = core->add_entity();
 
 	ent->add_component<Player>();
+
+	entity->add_component<triangleRenderer>();
 
 	core->start();
 
