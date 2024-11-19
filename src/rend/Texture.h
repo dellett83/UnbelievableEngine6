@@ -3,24 +3,26 @@
 #include <vector>
 #include <string>
 
-
-
-struct Texture
+namespace rend
 {
-private:
-	int m_Width; 
-	int m_Height;
-	bool m_Dirty;
 
-	GLuint m_Id;
+	struct Texture
+	{
+	private:
+		int m_width;
+		int m_height;
+		bool m_dirty;
 
-	std::vector<unsigned char> m_Data;
+		GLuint m_id;
 
-public:
-	Texture();
-	Texture(const std::string& _path);
+		std::vector<unsigned char> m_data;
 
-	GLuint getId();
+	public:
+		Texture();
+		Texture(const std::string& _path);
+
+		GLuint getId();
 
 
-};
+	};
+}

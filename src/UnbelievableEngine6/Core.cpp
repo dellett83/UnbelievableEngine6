@@ -67,7 +67,7 @@ namespace UnbelievableEngine6
 				m_entities.at(ent)->on_render();
 			}
 
-			SDL_GL_SwapWindow(m_window->m_Raw);
+			SDL_GL_SwapWindow(m_window->m_raw);
 		}
 	}
 

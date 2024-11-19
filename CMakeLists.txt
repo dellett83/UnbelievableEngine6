@@ -12,7 +12,6 @@ link_directories(
 )
 
 add_library(rend 
-	src/rend/main.cpp
 	src/rend/Mesh.cpp
 	src/rend/Mesh.h
 	src/rend/Model.h
@@ -22,6 +21,7 @@ add_library(rend
 	src/rend/Shader.h
 	src/rend/Texture.cpp
 	src/rend/Texture.h
+	src/rend/Rend.h
 )
 
 target_link_libraries(rend glew32 SDL2 opengl32)

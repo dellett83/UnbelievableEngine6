@@ -1,30 +1,37 @@
-#include "SDL2/SDL.h"
+#include "Window.h"
 
 namespace UnbelievableEngine6
 {
-	class Core;
-	class Window
+	Window::Window(int _width, int _height)
 	{
-	public:
-		Window(int _width, int _height);
-		~Window();
+		m_height = 1080;
+		m_width = 720;
+		window_initialize(m_width, m_height);
+	}
+	Window ::~Window()
+	{
+		SDL_GL_DeleteContext(m_context);
+		SDL_DestroyWindow(m_raw);
+		SDL_Quit();
+	}
+	void Window::window_initialize(int m_width, int m_height)
+	{
+		m_raw = SDL_CreateWindow("Game",
+			SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED,
+			m_width, m_height,
+			SDL_WINDOW_RESIZABLE | SDL_WINDOW_OPENGL);
 
-		void window_initialize();
+		if (!m_raw)
+		{
+			throw std::exception();
+		}
+		m_context = SDL_GL_CreateContext(m_raw);
 
+		if (glewInit() != GLEW_OK)
+		{
+			throw std::exception();
+		}
 
-	private:
-		friend class UnbelievableEngine6::Core;
-		SDL_Window* m_Raw;
-		SDL_GLContext m_Context;
-
-
-		Window(const Window& _copy);
-		Window& operator*(const Window& _assign);
-
-
-		int m_width;
-		int m_height;
-
-
-	};
-};
+		std::cout << "Width: " << m_width << " ," << "Height: " << m_height << std::endl;
+	}
+}

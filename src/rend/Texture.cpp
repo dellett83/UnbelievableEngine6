@@ -3,57 +3,60 @@
 #include <stb_image.h>
 #include <exception>
 
-Texture::Texture(const std::string& _path)
-	:m_Id(0)
-	,m_Width(0)
-	,m_Height(0)
-	,m_Dirty(false)
+namespace rend
 {
-
-	unsigned char* data = stbi_load(_path.c_str(), &m_Width, &m_Height, NULL, 4);
-
-	if (!data)
+	Texture::Texture(const std::string& _path)
+		: m_id(0)
+		, m_width(0)
+		, m_height(0)
+		, m_dirty(false)
 	{
-		throw std::exception();
-	}
 
-	for (size_t i = 0; i < m_Width * m_Height * 4; i++)
-	{
-		m_Data.push_back(data[i]);
-	}
+		unsigned char* data = stbi_load(_path.c_str(), &m_width, &m_height, NULL, 4);
 
-	m_Dirty = true;
-	free(data);
-}
-
-GLuint Texture::getId()
-{
-	if (!m_Id)
-	{
-		glGenTextures(1, &m_Id);
-
-		if (!m_Id)
+		if (!data)
 		{
 			throw std::exception();
 		}
+
+		for (size_t i = 0; i < m_width * m_height * 4; i++)
+		{
+			m_data.push_back(data[i]);
+		}
+
+		m_dirty = true;
+		free(data);
 	}
-	
-	if (m_Dirty)
+
+	GLuint Texture::getId()
 	{
-		glBindTexture(GL_TEXTURE_2D, m_Id);
+		if (!m_id)
+		{
+			glGenTextures(1, &m_id);
 
-		//upload image data to the bound texture unit in the gpu
-		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, m_Width, m_Height, 0, GL_RGBA,
-			GL_UNSIGNED_BYTE, &m_Data.at(0));
+			if (!m_id)
+			{
+				throw std::exception();
+			}
+		}
 
-		//generated mipmap so the texture can be mapped correctly
-		glGenerateMipmap(GL_TEXTURE_2D);
+		if (m_dirty)
+		{
+			glBindTexture(GL_TEXTURE_2D, m_id);
 
-		//unbind the texture because we are done operating on it
-		glBindTexture(GL_TEXTURE_2D,0);
+			//upload image data to the bound texture unit in the gpu
+			glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, m_width, m_height, 0, GL_RGBA,
+				GL_UNSIGNED_BYTE, &m_data.at(0));
 
-		m_Dirty = false;
+			//generated mipmap so the texture can be mapped correctly
+			glGenerateMipmap(GL_TEXTURE_2D);
+
+			//unbind the texture because we are done operating on it
+			glBindTexture(GL_TEXTURE_2D, 0);
+
+			m_dirty = false;
+		}
+
+		return m_id;
 	}
-
-	return m_Id;
 }

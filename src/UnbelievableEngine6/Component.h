@@ -1,3 +1,4 @@
+#pragma once
 #include <memory>
 namespace UnbelievableEngine6
 {
@@ -10,7 +11,7 @@ namespace UnbelievableEngine6
 		virtual void on_render();
 
 	private:
-		friend struct UnbelievableEngine6::Entity;
+		friend struct Entity;
 
 		std::weak_ptr<Entity> m_entity;
 

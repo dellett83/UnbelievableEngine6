@@ -25,7 +25,7 @@ namespace UnbelievableEngine6
 
 		std::weak_ptr<Core> m_core;
 		std::weak_ptr<Entity> m_self;
-		std::vector<std::shared_ptr<Component> > m_components;
+		std::vector<std::shared_ptr<Component>> m_components;
 
 		void tick();
 		void on_render();
