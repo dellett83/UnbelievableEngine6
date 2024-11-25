@@ -1,4 +1,6 @@
 #include "Component.h"
+#include "Entity.h"
+#include "Transform.h"
 #include "rend/Model.h"
 #include "rend/Shader.h"
 #include "rend/Texture.h"
@@ -12,8 +14,6 @@ namespace UnbelievableEngine6
 	{
 		triangleRenderer();
 		void on_render();
-
-	public:
 
 	private:
 		rend::Mesh m_mesh;

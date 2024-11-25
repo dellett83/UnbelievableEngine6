@@ -10,6 +10,8 @@ namespace UnbelievableEngine6
 		virtual void on_tick();
 		virtual void on_render();
 
+		std::shared_ptr<Entity>entity();
+
 	private:
 		friend struct Entity;
 

@@ -20,6 +20,18 @@ namespace UnbelievableEngine6
 			return rtn;
 		}
 
+		template<typename T>
+		std::shared_ptr<T> get_component()
+		{
+			for (size_t ci = 0; ci < m_components.size(); ++ci)
+			{
+				std::shared_ptr<T> rtn = std::dynamic_pointer_cast<T>(m_components.at(ci));
+
+				if (rtn) return rtn;
+			}
+			throw std::runtime_error("Failed to find component");
+		}
+
 	private:
 		friend struct UnbelievableEngine6::Core;
 

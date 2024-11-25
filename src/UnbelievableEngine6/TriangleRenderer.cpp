@@ -29,21 +29,25 @@ namespace UnbelievableEngine6
 		view = glm::rotate(view, glm::radians(0.0f), glm::vec3(1, 0, 0));
 		view = glm::rotate(view, glm::radians(0.0f), glm::vec3(0, 0, 1));
 		view = glm::inverse(view);
-		//mShader.uniform("u_View", view);
+
 		m_shader.uniform("u_View", glm::mat4(1.0f));
 
 
 		glm::mat4 modelMatrix = glm::mat4(1.0f);
-		modelMatrix = glm::translate(modelMatrix, glm::vec3(0.0f, 0.0f, -10.0f));
+		/*modelMatrix = glm::translate(modelMatrix, glm::vec3(0.0f, 0.0f, -10.0f));
 		modelMatrix = glm::rotate(modelMatrix, glm::radians(0.0f), glm::vec3(0, 1, 0));
 		modelMatrix = glm::rotate(modelMatrix, glm::radians(0.0f), glm::vec3(1, 0, 0));
 		modelMatrix = glm::rotate(modelMatrix, glm::radians(0.0f), glm::vec3(0, 0, 1));
-		modelMatrix = glm::scale(modelMatrix, glm::vec3(1.0f, 1.0f, 1.0f));
+		modelMatrix = glm::scale(modelMatrix, glm::vec3(1.0f, 1.0f, 1.0f));*/
+
+		modelMatrix = entity()->get_component<Transform>()->model();
+
 		m_shader.uniform("u_Model", modelMatrix);
+		
 
 		m_shader.draw(m_mesh, m_texture);
 
-
+		
 
 	}
 
