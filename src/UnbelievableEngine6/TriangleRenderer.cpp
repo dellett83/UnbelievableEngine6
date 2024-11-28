@@ -7,8 +7,8 @@ namespace UnbelievableEngine6
 
 
 	triangleRenderer::triangleRenderer()
-		: m_texture("../assets/textures/sample.png")
-		, m_shader("../assets/shaders/simple.vert", "../assets/shaders/simple.frag")
+		: m_texture("../src/UnbelievableEngine6/assets/textures/sample.png")
+		, m_shader("../src/UnbelievableEngine6/assets/shaders/fragshader.frag", "../src/UnbelievableEngine6/assets/shaders/vertshader.vert")
 	{
 		rend::Face face;
 		face.a.position = glm::vec3(0.0f, 1.0f, 0.0f);

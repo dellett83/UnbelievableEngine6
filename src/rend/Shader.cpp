@@ -10,7 +10,6 @@
 
 namespace rend
 {
-
 	Shader::Shader(const std::string& _fragpath, const std::string& _vertpath)
 		:m_id(0)
 		, v_id(0)

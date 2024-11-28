@@ -30,8 +30,8 @@ target_link_libraries(rend glew32s SDL2 opengl32)
 
 add_library(UnbelievableEngine6
 	src/UnbelievableEngine6/UnbelievableEngine6.h
-	src/UnbelievableEngine6/Core.cpp 
 	src/UnbelievableEngine6/Core.h
+	src/UnbelievableEngine6/Core.cpp 
 	src/UnbelievableEngine6/Entity.h
 	src/UnbelievableEngine6/Entity.cpp
 	src/UnbelievableEngine6/Component.h
@@ -42,6 +42,16 @@ add_library(UnbelievableEngine6
 	src/UnbelievableEngine6/TriangleRenderer.cpp
 	src/UnbelievableEngine6/Window.h
 	src/UnbelievableEngine6/Window.cpp
+	src/UnbelievableEngine6/Resource.h
+	src/UnbelievableEngine6/Resource.cpp
+	src/UnbelievableEngine6/Texture.h
+	src/UnbelievableEngine6/Texture.cpp
+	src/UnbelievableEngine6/Model.h
+	src/UnbelievableEngine6/Model.cpp
+	src/UnbelievableEngine6/Keyboard.h
+	src/UnbelievableEngine6/Keyboard.cpp
+	src/UnbelievableEngine6/Input.h
+	src/UnbelievableEngine6/Input.cpp
 )
 
 target_link_libraries(UnbelievableEngine6 rend)

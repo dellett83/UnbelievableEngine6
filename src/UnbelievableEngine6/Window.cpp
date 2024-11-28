@@ -4,8 +4,8 @@ namespace UnbelievableEngine6
 {
 	Window::Window(int _width, int _height)
 	{
-		m_height = 1080;
-		m_width = 720;
+		m_height = 720;
+		m_width = 1080;
 		window_initialize(m_width, m_height);
 	}
 	Window ::~Window()
