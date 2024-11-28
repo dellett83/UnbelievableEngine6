@@ -1,11 +1,5 @@
 #include "Component.h"
-#include "Entity.h"
-#include "Transform.h"
-#include "rend/Model.h"
-#include "rend/Shader.h"
-#include "rend/Texture.h"
-#include "rend/Mesh.h"
-#include "rend/RenderTexture.h"
+#include "rend/rend.h"
 
 
 namespace UnbelievableEngine6

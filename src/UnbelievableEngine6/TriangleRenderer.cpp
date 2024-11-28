@@ -1,4 +1,6 @@
 #include "TriangleRenderer.h"
+#include "Transform.h"
+#include "Entity.h"
 
 namespace UnbelievableEngine6
 {

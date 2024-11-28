@@ -1,6 +1,8 @@
 cmake_minimum_required(VERSION ${CMAKE_VERSION})
 project(UNBELIEVABLEENGINE6)
 
+add_definitions(-DGLEW_STATIC)
+
 include_directories(
 	src
 	contrib/include
@@ -24,7 +26,7 @@ add_library(rend
 	src/rend/Rend.h
 )
 
-target_link_libraries(rend glew32 SDL2 opengl32)
+target_link_libraries(rend glew32s SDL2 opengl32)
 
 add_library(UnbelievableEngine6
 	src/UnbelievableEngine6/UnbelievableEngine6.h

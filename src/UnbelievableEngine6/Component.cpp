@@ -10,4 +10,9 @@ namespace UnbelievableEngine6
 	{
 		on_tick();
 	}
+
+	std::shared_ptr<Entity> Component::entity()
+	{
+		return m_entity.lock();
+	}
 }

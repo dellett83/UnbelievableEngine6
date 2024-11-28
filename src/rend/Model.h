@@ -325,6 +325,5 @@ namespace rend
         , texcoord(0, 0)
         , normal(0, 0, 0)
     { }
-
+};
 #endif
-}
