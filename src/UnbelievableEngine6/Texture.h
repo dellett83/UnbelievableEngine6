@@ -11,7 +11,7 @@ namespace UnbelievableEngine6
 {
 	struct Texture : public Resource
 	{
-		void onLoad();
+		void onLoad() { m_texture = std::make_shared<rend::Texture>(getPath() + ".png"); }
 
 	private:
 		std::shared_ptr<rend::Texture> m_texture;

@@ -6,13 +6,13 @@
 
 namespace UnbelievableEngine6
 {
-	struct TriangleRenderer : Component
+	struct ModelRenderer : Component
 	{
-		TriangleRenderer();
+		ModelRenderer();
 		void on_render();
 
 	private:
-		rend::Mesh m_mesh;
+		rend::Model m_model;
 		rend::Shader m_shader;
 		rend::Texture m_texture;
 	};

@@ -122,7 +122,7 @@ namespace rend
 		glUseProgram(m_id);
 		glBindVertexArray(_mesh.vao_id());
 		glBindTexture(GL_TEXTURE_2D, _tex.getId());
-		glEnable(GL_DEPTH_TEST);
+		//glEnable(GL_DEPTH_TEST);
 		glDrawArrays(GL_TRIANGLES, 0, _mesh.vertex_count());
 		glUseProgram(0);
 	}

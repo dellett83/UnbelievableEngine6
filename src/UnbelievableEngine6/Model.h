@@ -10,7 +10,7 @@ namespace UnbelievableEngine6
 {
 	struct Model : Resource
 	{
-		void onLoad();
+		void onLoad() { m_model = std::make_shared<rend::Model>(getPath() + ".obj"); }
 
 	private:
 		std::shared_ptr<rend::Model> m_model;

@@ -52,6 +52,10 @@ add_library(UnbelievableEngine6
 	src/UnbelievableEngine6/Keyboard.cpp
 	src/UnbelievableEngine6/Input.h
 	src/UnbelievableEngine6/Input.cpp
+	src/UnbelievableEngine6/Resources.h
+	src/UnbelievableEngine6/Resources.cpp
+	src/UnbelievableEngine6/ModelRenderer.h
+	src/UnbelievableEngine6/ModelRenderer.cpp
 )
 
 target_link_libraries(UnbelievableEngine6 rend)

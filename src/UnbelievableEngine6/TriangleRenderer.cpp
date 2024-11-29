@@ -6,9 +6,9 @@ namespace UnbelievableEngine6
 {
 
 
-	triangleRenderer::triangleRenderer()
-		: m_texture("../src/UnbelievableEngine6/assets/textures/sample.png")
-		, m_shader("../src/UnbelievableEngine6/assets/shaders/fragshader.frag", "../src/UnbelievableEngine6/assets/shaders/vertshader.vert")
+	TriangleRenderer::TriangleRenderer()
+		: m_texture("../assets/textures/sample.png")
+		, m_shader("../assets/shaders/basic.frag", "../assets/shaders/basic.vert")
 	{
 		rend::Face face;
 		face.a.position = glm::vec3(0.0f, 1.0f, 0.0f);
@@ -20,31 +20,31 @@ namespace UnbelievableEngine6
 
 		m_mesh.addFace(face);
 	}
-	void triangleRenderer::on_render()
+	void TriangleRenderer::on_render()
 	{
 		glm::mat4 projection = glm::perspective(glm::radians(45.0f), (float)1080 / (float)720, 0.1f, 100.0f);
 		m_shader.uniform("u_Projection", projection);
 
 		glm::mat4 view(1.0f);
-		view = glm::translate(view, glm::vec3(0.0f, 0.0f, 0.0f));
-		view = glm::rotate(view, glm::radians(0.0f), glm::vec3(0, 1, 0));
-		view = glm::rotate(view, glm::radians(0.0f), glm::vec3(1, 0, 0));
-		view = glm::rotate(view, glm::radians(0.0f), glm::vec3(0, 0, 1));
-		view = glm::inverse(view);
-
-		m_shader.uniform("u_View", glm::mat4(1.0f));
+		//view = glm::translate(view, glm::vec3(0.0f, 0.0f, 0.0f));
+		//view = glm::rotate(view, glm::radians(0.0f), glm::vec3(0, 1, 0));
+		//view = glm::rotate(view, glm::radians(0.0f), glm::vec3(1, 0, 0));
+		//view = glm::rotate(view, glm::radians(0.0f), glm::vec3(0, 0, 1));
+		//view = glm::inverse(view);
+		m_shader.uniform("u_View", view);
 
 
 		glm::mat4 modelMatrix = glm::mat4(1.0f);
-		/*modelMatrix = glm::translate(modelMatrix, glm::vec3(0.0f, 0.0f, -10.0f));
-		modelMatrix = glm::rotate(modelMatrix, glm::radians(0.0f), glm::vec3(0, 1, 0));
-		modelMatrix = glm::rotate(modelMatrix, glm::radians(0.0f), glm::vec3(1, 0, 0));
-		modelMatrix = glm::rotate(modelMatrix, glm::radians(0.0f), glm::vec3(0, 0, 1));
-		modelMatrix = glm::scale(modelMatrix, glm::vec3(1.0f, 1.0f, 1.0f));*/
-
-		modelMatrix = entity()->get_component<Transform>()->model();
-
+		modelMatrix = glm::translate(modelMatrix, glm::vec3(0.0f, 0.0f, -10.0f));
+		//modelMatrix = glm::rotate(modelMatrix, glm::radians(0.0f), glm::vec3(0, 1, 0));
+		//modelMatrix = glm::rotate(modelMatrix, glm::radians(0.0f), glm::vec3(1, 0, 0));
+		//modelMatrix = glm::rotate(modelMatrix, glm::radians(0.0f), glm::vec3(0, 0, 1));
+		//modelMatrix = glm::scale(modelMatrix, glm::vec3(1.0f, 1.0f, 1.0f));*/
 		m_shader.uniform("u_Model", modelMatrix);
+
+		//modelMatrix = entity()->get_component<Transform>()->model();
+
+
 		
 
 		m_shader.draw(m_mesh, m_texture);
