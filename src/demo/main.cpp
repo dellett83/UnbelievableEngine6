@@ -21,7 +21,7 @@ int main() {
 
 	ent->add_component<Player>();
 
-	ent->add_component<TriangleRenderer>();
+	ent->add_component<ModelRenderer>();
 
 	core->start();
 

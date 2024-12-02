@@ -7,11 +7,12 @@ namespace UnbelievableEngine6
 
 
 	ModelRenderer::ModelRenderer()
-		: m_texture("../assets/textures/sample.png")
-		, m_model("../assets/models/curuthers.obj")
+		: m_texture("../assets/textures/cat.png")
+		, m_model("../assets/models/curuthers/cat.obj")
 		, m_shader("../assets/shaders/basic.frag", "../assets/shaders/basic.vert")
 	{
 	}
+
 	void ModelRenderer::on_render()
 	{
 		glm::mat4 projection = glm::perspective(glm::radians(45.0f), (float)1080 / (float)720, 0.1f, 100.0f);

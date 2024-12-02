@@ -6,6 +6,7 @@
 #include <UnbelievableEngine6/Component.h>
 #include <UnbelievableEngine6/Transform.h>
 #include <UnbelievableEngine6/TriangleRenderer.h>
+#include <UnbelievableEngine6/ModelRenderer.h>
 #include <UnbelievableEngine6/Resource.h>
 #include <UnbelievableEngine6/Texture.h>
 #include <UnbelievableEngine6/Model.h>
