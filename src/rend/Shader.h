@@ -34,5 +34,6 @@ namespace rend
         void draw(Mesh& _mesh, GLuint _texId);
         void draw(Model& _model, Texture& _tex);
         void draw(Model& _model, GLuint _texid);
+        void draw(Model* _model, Texture* _tex);
     };
 }

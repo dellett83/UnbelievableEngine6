@@ -17,11 +17,11 @@ namespace UnbelievableEngine6
 			{
 				if (m_resources[i]->getPath() == _path)
 				{
-					return m_resources.at(i);
+					return std::dynamic_pointer_cast<T>(m_resources.at(i));
 				}
 			}
 			std::shared_ptr<T> rtn = std::make_shared<T>();
-			rtn->setPath("../src/UnbelievableEngine6/assets/ " + _path);
+			rtn->setPath("../assets/" + _path);
 			rtn->onLoad();
 			m_resources.push_back(rtn);
 

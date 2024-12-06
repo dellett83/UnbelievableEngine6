@@ -14,6 +14,7 @@ namespace UnbelievableEngine6
 	{
 		std::shared_ptr<Core> rtn = std::make_shared<Core>();
 		rtn->m_window = std::make_shared<Window>(1920, 1080);
+		rtn->m_resources = std::make_shared<Resources>();
 		rtn->m_self = rtn;
 
 		return rtn;
@@ -61,6 +62,8 @@ namespace UnbelievableEngine6
 		std::vector<std::shared_ptr<Resource> > m_resources;
 	};
 
+
+
 	void Core::start()
 	{
 		bool running = true;
@@ -92,6 +95,10 @@ namespace UnbelievableEngine6
 
 			SDL_GL_SwapWindow(m_window->m_raw);
 		}
+	}
+
+	std::shared_ptr<Resources> Core::getResources() {
+		return m_resources;
 	}
 
 }

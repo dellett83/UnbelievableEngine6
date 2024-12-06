@@ -8,6 +8,7 @@
 #include <UnbelievableEngine6/TriangleRenderer.h>
 #include <UnbelievableEngine6/ModelRenderer.h>
 #include <UnbelievableEngine6/Resource.h>
+#include <UnbelievableEngine6/Resources.h>
 #include <UnbelievableEngine6/Texture.h>
 #include <UnbelievableEngine6/Model.h>
 

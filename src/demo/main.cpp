@@ -21,7 +21,11 @@ int main() {
 
 	ent->add_component<Player>();
 
-	ent->add_component<ModelRenderer>();
+	std::shared_ptr<Model> m = core->getResources()->load<Model>("models/curuthers/cat");
+
+	std::shared_ptr<ModelRenderer> mr = ent->add_component<ModelRenderer>();
+	//mr->setModel(m);
+
 
 	core->start();
 
