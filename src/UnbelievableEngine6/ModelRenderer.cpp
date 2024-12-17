@@ -1,16 +1,15 @@
 #include "ModelRenderer.h"
+#include "rend/Shader.h"
 
 
 namespace UnbelievableEngine6
 {
 
-	ModelRenderer::ModelRenderer(){
-	}
+	ModelRenderer::ModelRenderer(){}
 
 	void ModelRenderer::on_initialize()
 	{
-		m_shader = std::make_shared<rend::Shader>(); 
-		"../UnbelievableEngine6/src/shaders/texture.vert", "../UnbelievableEngine6/src/shaders/texture.frag";
+		m_shader = std::make_shared<rend::Shader>("../assets/shaders/basic.frag", "../assets/shaders/basic.vert");
 	}
 
 	void ModelRenderer::setTex(std::shared_ptr<Texture> _tex)
@@ -25,11 +24,21 @@ namespace UnbelievableEngine6
 
 	void ModelRenderer::on_render()
 	{
+		if (!m_texture)
+		{
+			return;
+		}
+
+		if (!m_model)
+		{
+			return;
+		}
+
 		glm::mat4 projection = glm::perspective(glm::radians(45.0f), (float)1080 / (float)720, 0.1f, 100.0f);
 		m_shader->uniform("u_Projection", projection);
 
 		glm::mat4 view(1.0f);
-		view = glm::translate(view, glm::vec3(0.0f, 0.0f, 0.0f));
+		view = glm::translate(view, glm::vec3(0.0f, 0.0f, 10.0f));
 		view = glm::rotate(view, glm::radians(0.0f), glm::vec3(0, 1, 0));
 		view = glm::rotate(view, glm::radians(0.0f), glm::vec3(1, 0, 0));
 		view = glm::rotate(view, glm::radians(0.0f), glm::vec3(0, 0, 1));

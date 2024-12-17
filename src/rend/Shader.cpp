@@ -163,6 +163,8 @@ namespace rend
 		glBindVertexArray(_model->vao_id());
 		glBindTexture(GL_TEXTURE_2D, _tex->getId());
 		glDrawArrays(GL_TRIANGLES, 0, _model->vertex_count());
+		glEnable(GL_DEPTH_TEST);
+		glEnable(GL_CULL_FACE);
 		glBindVertexArray(0);
 		glBindTexture(GL_TEXTURE_2D, 0);
 		glUseProgram(0);

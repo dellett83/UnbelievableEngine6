@@ -23,9 +23,11 @@ int main() {
 
 	std::shared_ptr<Model> m = core->getResources()->load<Model>("models/curuthers/cat");
 
-	std::shared_ptr<ModelRenderer> mr = ent->add_component<ModelRenderer>();
-	//mr->setModel(m);
+	std::shared_ptr<Texture> t = core->getResources()->load<Texture>("textures/cat");
 
+	std::shared_ptr<ModelRenderer> mr = ent->add_component<ModelRenderer>();
+	mr->setModel(m);
+	mr->setTex(t);
 
 	core->start();
 

@@ -3,6 +3,7 @@
 #include "Transform.h"
 #include "Window.h"
 #include "Resource.h"
+#include "Input.h"
 
 #include <GL/glew.h>
 #include <iostream>
@@ -15,6 +16,7 @@ namespace UnbelievableEngine6
 		std::shared_ptr<Core> rtn = std::make_shared<Core>();
 		rtn->m_window = std::make_shared<Window>(1920, 1080);
 		rtn->m_resources = std::make_shared<Resources>();
+		rtn->m_input = std::make_shared<Input>();
 		rtn->m_self = rtn;
 
 		return rtn;
@@ -69,6 +71,8 @@ namespace UnbelievableEngine6
 		bool running = true;
 		while (running)
 		{
+			m_input->Update();
+
 			SDL_Event event = {};
 
 			while (SDL_PollEvent(&event))
@@ -76,6 +80,10 @@ namespace UnbelievableEngine6
 				if (event.type == SDL_QUIT)
 				{
 					running = false;
+				}
+				else
+				{
+					m_input->HandleInput(event);
 				}
 			}
 

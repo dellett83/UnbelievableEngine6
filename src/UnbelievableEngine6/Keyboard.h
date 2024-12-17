@@ -15,7 +15,6 @@ namespace UnbelievableEngine6
 		Keyboard();
 		~Keyboard();
 
-		void Update();
 
 		bool isKeyPressed(int _key);
 		bool isKeyReleased(int _key);
@@ -23,6 +22,8 @@ namespace UnbelievableEngine6
 
 	private:
 		friend class Input;
+
+		void Update();
 
 		void onKeyRelease(int _key)
 		{

@@ -23,5 +23,6 @@ namespace UnbelievableEngine6
 		std::weak_ptr<Core> m_self;
 		std::shared_ptr<Window> m_window;
 		std::shared_ptr<Resources> m_resources;
+		std::shared_ptr<Input> m_input;
 	};
 }
