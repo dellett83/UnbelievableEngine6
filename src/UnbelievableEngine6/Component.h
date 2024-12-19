@@ -12,6 +12,8 @@ namespace UnbelievableEngine6
 		virtual void on_render();
 
 		std::shared_ptr<Entity> entity();
+		glm::vec3 getPosition();
+		void setPosition(glm::vec3 _position);
 
 	private:
 		friend struct Entity;

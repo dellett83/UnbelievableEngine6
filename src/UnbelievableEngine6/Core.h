@@ -7,6 +7,8 @@ namespace UnbelievableEngine6
 	struct Entity;
 	struct Window;
 	struct Resources;
+	struct Input;
+	struct Keyboard;
 
 	struct Core
 	{
@@ -17,6 +19,7 @@ namespace UnbelievableEngine6
 		std::shared_ptr<Entity> add_entity();
 		std::shared_ptr<Window> window() const;
 		std::shared_ptr<Resources> getResources();
+		std::shared_ptr<Keyboard> getKeyboard();
 
 	private:
 		std::vector<std::shared_ptr<Entity> > m_entities;

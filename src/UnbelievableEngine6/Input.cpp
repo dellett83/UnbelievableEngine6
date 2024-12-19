@@ -1,7 +1,7 @@
 #include "Input.h"
 
 #include <vector>
-#include <memory>
+#include <iostream>
 
 namespace UnbelievableEngine6
 {
@@ -10,20 +10,21 @@ namespace UnbelievableEngine6
 		m_keyboard = std::make_shared<Keyboard>();
 	}
 
-	bool Input::Update()
+	void Input::Update()
 	{
 		m_keyboard->Update();
 	}
-	void Input::InputHandler(const SDL_Event& _e)
+
+	void Input::InputHandler(const SDL_Event& _event)
 	{
-		 if (_e.type == SDL_KEYDOWN)
+		if (_event.type == SDL_KEYDOWN)
 		{
-			m_keyboard->m_key.push_back(_e.key.keysym.sym);
-			m_keyboard->m_keyPressed.push_back(_e.key.keysym.sym);
+			m_keyboard->m_key.push_back(_event.key.keysym.sym);
+			m_keyboard->m_keyPressed.push_back(_event.key.keysym.sym);
 		}
-		else if (_e.type == SDL_KEYUP)
+		else if (_event.type == SDL_KEYUP)
 		{
-			m_keyboard->onKeyRelease(_e.key.keysym.sym);
+			m_keyboard->onKeyRelease(_event.key.keysym.sym);
 		}
 
 	}

@@ -83,7 +83,7 @@ namespace UnbelievableEngine6
 				}
 				else
 				{
-					m_input->HandleInput(event);
+					m_input->InputHandler(event);
 				}
 			}
 
@@ -103,6 +103,10 @@ namespace UnbelievableEngine6
 
 			SDL_GL_SwapWindow(m_window->m_raw);
 		}
+	}
+
+	std::shared_ptr<Keyboard> Core::getKeyboard() {
+		return m_input->getKeyboard();
 	}
 
 	std::shared_ptr<Resources> Core::getResources() {

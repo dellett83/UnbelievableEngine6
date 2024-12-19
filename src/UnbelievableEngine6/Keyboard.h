@@ -12,10 +12,6 @@ namespace UnbelievableEngine6
 	class Keyboard
 	{
 	public:
-		Keyboard();
-		~Keyboard();
-
-
 		bool isKeyPressed(int _key);
 		bool isKeyReleased(int _key);
 		bool isKeyDown(int _key);
@@ -32,7 +28,7 @@ namespace UnbelievableEngine6
 				if (m_key[i] == _key)
 				{
 					m_key.erase(m_key.begin() + i);
-					m_keyReleased.push_back(_key);
+					--i;
 					break;
 				}
 			}

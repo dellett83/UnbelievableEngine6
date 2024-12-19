@@ -11,8 +11,14 @@ struct Player : public Component
 
 	void on_tick()
 	{
+		if (entity()->core()->getKeyboard()->isKeyDown(SDLK_w))
+		{
+			
+		}
 	}
 };
+
+#undef main
 
 int main() {
 	std::shared_ptr<Core> core = Core::initialize();

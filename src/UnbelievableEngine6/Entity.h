@@ -34,6 +34,11 @@ namespace UnbelievableEngine6
 			throw std::runtime_error("Failed to find component");
 		}
 
+		std::shared_ptr<Core> core()
+		{
+			return m_core.lock();
+		}
+
 	private:
 		friend struct UnbelievableEngine6::Core;
 

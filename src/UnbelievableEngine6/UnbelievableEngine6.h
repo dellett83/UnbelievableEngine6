@@ -11,5 +11,7 @@
 #include <UnbelievableEngine6/Resources.h>
 #include <UnbelievableEngine6/Texture.h>
 #include <UnbelievableEngine6/Model.h>
+#include <UnbelievableEngine6/Input.h>
+#include <UnbelievableEngine6/Keyboard.h>
 
 #endif
