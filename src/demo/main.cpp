@@ -25,6 +25,11 @@ struct Player : public Component
 		{
 			transform()->setPosition(transform()->getPosition() + glm::vec3(0.f, 0.1f, 0.f));
 		}
+
+		if (entity()->core()->getKeyboard()->isKeyPressed(SDLK_i))
+		{
+			entity()->get_component<AudioSource>()->Play();
+		}
 	}
 };
 
@@ -46,9 +51,9 @@ int main() {
 	mr->setTex(t);
 
 	std::shared_ptr<AudioSource> as = ent->add_component<AudioSource>();
+	std::shared_ptr<Sound> sound = core->getResources()->load<Sound>("audio/dixie_horn");
 
-	as->setSound("../assets/audio/dixie_horn.ogg");
-	as->setLooping(true);
+	as->setSound(sound);
 
 	core->start();
 

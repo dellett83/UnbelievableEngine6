@@ -23,6 +23,7 @@ namespace UnbelievableEngine6
 		std::shared_ptr<Window> window() const;
 		std::shared_ptr<Resources> getResources();
 		std::shared_ptr<Keyboard> getKeyboard();
+		std::shared_ptr<Audio> getAudio();
 
 	private:
 		std::vector<std::shared_ptr<Entity> > m_entities;

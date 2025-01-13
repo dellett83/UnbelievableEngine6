@@ -58,6 +58,11 @@ add_library(UnbelievableEngine6
 	src/UnbelievableEngine6/ModelRenderer.cpp
 	src/UnbelievableEngine6/Audio.h
 	src/UnbelievableEngine6/Audio.cpp
+	src/UnbelievableEngine6/AudioSource.h
+	src/UnbelievableEngine6/AudioSource.cpp
+	src/UnbelievableEngine6/Sound.h
+	src/UnbelievableEngine6/Sound.cpp
+	src/UnbelievableEngine6/stb_vorbis.c
 )
 
 target_link_libraries(UnbelievableEngine6 rend)

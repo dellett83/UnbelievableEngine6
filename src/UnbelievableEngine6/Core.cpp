@@ -114,4 +114,9 @@ namespace UnbelievableEngine6
 		return m_resources;
 	}
 
+	std::shared_ptr<Audio> Core::getAudio()
+	{
+		return m_audio;
+	}
+
 }
