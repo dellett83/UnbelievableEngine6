@@ -1,4 +1,6 @@
 #include "Component.h"
+#include "Transform.h"
+#include "Entity.h"
 
 namespace UnbelievableEngine6
 {
@@ -14,5 +16,10 @@ namespace UnbelievableEngine6
 	std::shared_ptr<Entity> Component::entity()
 	{
 		return m_entity.lock();
+	}
+
+	std::shared_ptr<Transform> Component::transform()
+	{
+		return entity()->get_component<Transform>();
 	}
 }

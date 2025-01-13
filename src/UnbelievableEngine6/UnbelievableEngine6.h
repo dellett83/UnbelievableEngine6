@@ -13,5 +13,7 @@
 #include <UnbelievableEngine6/Model.h>
 #include <UnbelievableEngine6/Input.h>
 #include <UnbelievableEngine6/Keyboard.h>
+#include <UnbelievableEngine6/AudioSource.h>
+
 
 #endif

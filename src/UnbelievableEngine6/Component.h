@@ -4,6 +4,7 @@
 namespace UnbelievableEngine6
 {
 	struct Entity;
+	struct Transform;
 
 	struct Component
 	{
@@ -12,8 +13,7 @@ namespace UnbelievableEngine6
 		virtual void on_render();
 
 		std::shared_ptr<Entity> entity();
-		glm::vec3 getPosition();
-		void setPosition(glm::vec3 _position);
+		std::shared_ptr<Transform> transform();
 
 	private:
 		friend struct Entity;

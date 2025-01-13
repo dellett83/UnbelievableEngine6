@@ -26,7 +26,7 @@ add_library(rend
 	src/rend/Rend.h
 )
 
-target_link_libraries(rend glew32s SDL2 opengl32)
+target_link_libraries(rend glew32s SDL2 opengl32 openal32)
 
 add_library(UnbelievableEngine6
 	src/UnbelievableEngine6/UnbelievableEngine6.h
@@ -56,6 +56,8 @@ add_library(UnbelievableEngine6
 	src/UnbelievableEngine6/Resources.cpp
 	src/UnbelievableEngine6/ModelRenderer.h
 	src/UnbelievableEngine6/ModelRenderer.cpp
+	src/UnbelievableEngine6/Audio.h
+	src/UnbelievableEngine6/Audio.cpp
 )
 
 target_link_libraries(UnbelievableEngine6 rend)

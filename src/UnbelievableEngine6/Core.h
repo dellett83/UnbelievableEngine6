@@ -2,6 +2,9 @@
 
 #include <memory>
 #include <vector>
+
+#include "Audio.h"
+
 namespace UnbelievableEngine6
 {
 	struct Entity;
@@ -25,6 +28,7 @@ namespace UnbelievableEngine6
 		std::vector<std::shared_ptr<Entity> > m_entities;
 		std::weak_ptr<Core> m_self;
 		std::shared_ptr<Window> m_window;
+		std::shared_ptr<Audio> m_audio;
 		std::shared_ptr<Resources> m_resources;
 		std::shared_ptr<Input> m_input;
 	};

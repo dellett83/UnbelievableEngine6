@@ -15,6 +15,7 @@ namespace UnbelievableEngine6
 	{
 		std::shared_ptr<Core> rtn = std::make_shared<Core>();
 		rtn->m_window = std::make_shared<Window>(1920, 1080);
+		rtn->m_audio = std::make_shared<Audio>();
 		rtn->m_resources = std::make_shared<Resources>();
 		rtn->m_input = std::make_shared<Input>();
 		rtn->m_self = rtn;

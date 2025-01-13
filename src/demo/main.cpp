@@ -11,9 +11,19 @@ struct Player : public Component
 
 	void on_tick()
 	{
-		if (entity()->core()->getKeyboard()->isKeyDown(SDLK_w))
+		if (entity()->core()->getKeyboard()->isKeyDown(SDLK_d))
 		{
-			
+			transform()->setPosition(transform()->getPosition() + glm::vec3(0.1f, 0.f, 0.f));
+		}
+
+		else if (entity()->core()->getKeyboard()->isKeyDown(SDLK_a))
+		{
+			transform()->setPosition(transform()->getPosition() + glm::vec3(-0.1f, 0.f, 0.f));
+		}
+
+		else if (entity()->core()->getKeyboard()->isKeyDown(SDLK_SPACE))
+		{
+			transform()->setPosition(transform()->getPosition() + glm::vec3(0.f, 0.1f, 0.f));
 		}
 	}
 };
@@ -34,6 +44,11 @@ int main() {
 	std::shared_ptr<ModelRenderer> mr = ent->add_component<ModelRenderer>();
 	mr->setModel(m);
 	mr->setTex(t);
+
+	std::shared_ptr<AudioSource> as = ent->add_component<AudioSource>();
+
+	as->setSound("../assets/audio/dixie_horn.ogg");
+	as->setLooping(true);
 
 	core->start();
 
