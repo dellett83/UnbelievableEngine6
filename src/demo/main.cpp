@@ -11,17 +11,17 @@ struct Player : public Component
 
 	void on_tick()
 	{
-		if (entity()->core()->getKeyboard()->isKeyDown(SDLK_d))
+		if (entity()->core()->getKeyboard()->isKeyPressed(SDLK_d))
 		{
 			transform()->setPosition(transform()->getPosition() + glm::vec3(0.1f, 0.f, 0.f));
 		}
 
-		else if (entity()->core()->getKeyboard()->isKeyDown(SDLK_a))
+		else if (entity()->core()->getKeyboard()->isKeyPressed(SDLK_a))
 		{
 			transform()->setPosition(transform()->getPosition() + glm::vec3(-0.1f, 0.f, 0.f));
 		}
 
-		else if (entity()->core()->getKeyboard()->isKeyDown(SDLK_SPACE))
+		else if (entity()->core()->getKeyboard()->isKeyPressed(SDLK_SPACE))
 		{
 			transform()->setPosition(transform()->getPosition() + glm::vec3(0.f, 0.1f, 0.f));
 		}
@@ -38,17 +38,37 @@ struct Player : public Component
 int main() {
 	std::shared_ptr<Core> core = Core::initialize();
 
+  //Entity 1
 	std::shared_ptr<Entity> ent = core->add_entity();
-
 	ent->add_component<Player>();
-
-	std::shared_ptr<Model> m = core->getResources()->load<Model>("models/curuthers/cat");
-
-	std::shared_ptr<Texture> t = core->getResources()->load<Texture>("textures/cat");
-
 	std::shared_ptr<ModelRenderer> mr = ent->add_component<ModelRenderer>();
+	std::shared_ptr<Model> m = core->getResources()->load<Model>("models/curuthers/cat");
+	std::shared_ptr<Texture> t = core->getResources()->load<Texture>("textures/cat");
 	mr->setModel(m);
 	mr->setTex(t);
+
+	ent->get_component<Transform>()->setPosition(glm::vec3(-1.5f, 0.f, -10.f));
+
+	std::shared_ptr<BoxCollider> bc = ent->add_component<BoxCollider>();
+	bc->setOffset(glm::vec3(0, 0.3f, 0.5f));
+	bc->setSize(glm::vec3(0, 0.3f, 0.5f));
+	ent->add_component<Rigidbody>();
+
+  //Entity 2
+	std::shared_ptr<Entity> ent2 = core->add_entity();
+	std::shared_ptr<ModelRenderer> mr2 = ent2->add_component<ModelRenderer>();
+	std::shared_ptr<Model> m2 = core->getResources()->load<Model>("models/grass/grass");
+	std::shared_ptr<Texture> t2 = core->getResources()->load<Texture>("textures/grass");
+	mr2->setModel(m2);
+	mr2->setTex(t2);
+
+	ent2->get_component<Transform>()->setPosition(glm::vec3(1.5f, 0.f, -10.f));
+
+	std::shared_ptr<BoxCollider> bc2 = ent2->add_component<BoxCollider>();
+	bc2->setOffset(glm::vec3(0, 0.3f, 0.5f));
+	bc2->setSize(glm::vec3(0, 0.3f, 0.5f));
+	ent2->add_component<Rigidbody>();
+
 
 	std::shared_ptr<AudioSource> as = ent->add_component<AudioSource>();
 	std::shared_ptr<Sound> sound = core->getResources()->load<Sound>("audio/dixie_horn");

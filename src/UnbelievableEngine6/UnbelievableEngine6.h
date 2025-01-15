@@ -14,6 +14,8 @@
 #include <UnbelievableEngine6/Input.h>
 #include <UnbelievableEngine6/Keyboard.h>
 #include <UnbelievableEngine6/AudioSource.h>
+#include <UnbelievableEngine6/BoxCollider.h>
+#include <UnbelievableEngine6/Rigidbody.h>
 
 
 #endif

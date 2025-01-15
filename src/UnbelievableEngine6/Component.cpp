@@ -22,4 +22,14 @@ namespace UnbelievableEngine6
 	{
 		return entity()->get_component<Transform>();
 	}
+
+	glm::vec3 Component::position()
+	{
+		return transform()->getPosition();
+	}
+
+	void Component::setPosition(glm::vec3 _position)
+	{
+		transform()->setPosition(_position);
+	}
 }
