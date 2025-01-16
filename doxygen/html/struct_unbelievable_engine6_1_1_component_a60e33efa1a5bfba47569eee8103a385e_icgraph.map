@@ -1,0 +1,11 @@
+<map id="UnbelievableEngine6::Component::transform" name="UnbelievableEngine6::Component::transform">
+<area shape="rect" id="Node000001" title="Gets the transform component of the entity." alt="" coords="223,109,382,152"/>
+<area shape="rect" id="Node000002" href="$struct_unbelievable_engine6_1_1_model_renderer.html#a80626b3a997ac37b22b29d61c8ccb086" title="Called every frame to render the component." alt="" coords="18,5,162,64"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="239,105,155,67,158,62,241,100"/>
+<area shape="rect" id="Node000003" href="$struct_player.html#a19985b4ff32c47ee703466ce12a97158" title="Called every frame to update the component." alt="" coords="36,88,144,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="207,120,144,111,145,106,208,115"/>
+<area shape="rect" id="Node000004" href="$struct_unbelievable_engine6_1_1_component.html#aeb779e2f639900a9440f89e408e92c9c" title="Gets the position of the entity." alt="" coords="15,139,165,181"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="208,146,166,152,165,147,207,141"/>
+<area shape="rect" id="Node000005" href="$struct_unbelievable_engine6_1_1_component.html#a1ff3815fd2c7f7f9a33afe12e613b495" title="Sets the position of the entity." alt="" coords="5,205,175,248"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="247,161,176,196,149,207,147,202,174,191,245,157"/>
+</map>

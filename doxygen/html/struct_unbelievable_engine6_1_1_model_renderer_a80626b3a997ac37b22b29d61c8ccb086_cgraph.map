@@ -1,0 +1,8 @@
+<map id="UnbelievableEngine6::ModelRenderer::on_render" name="UnbelievableEngine6::ModelRenderer::on_render">
+<area shape="rect" id="Node000001" title="Called every frame to render the component." alt="" coords="5,5,149,64"/>
+<area shape="rect" id="Node000002" href="$struct_unbelievable_engine6_1_1_component.html#acfff628ce8864e962e534889266c9f62" title="Gets the entity that this component is attached to." alt="" coords="404,13,547,56"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="149,29,197,28,356,28,388,29,388,34,356,33,197,33,149,35"/>
+<area shape="rect" id="Node000003" href="$struct_unbelievable_engine6_1_1_component.html#a60e33efa1a5bfba47569eee8103a385e" title="Gets the transform component of the entity." alt="" coords="197,43,356,85"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="149,43,181,47,180,53,148,48"/>
+<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="356,50,388,45,389,50,357,55"/>
+</map>

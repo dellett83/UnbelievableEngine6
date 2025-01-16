@@ -24,7 +24,7 @@
 */
 var NAVTREE =
 [
-  [ "UnbelievableEngine6", "index.html", [
+  [ "Unbelievable Engine 6", "index.html", [
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
       [ "Class Index", "classes.html", null ],
