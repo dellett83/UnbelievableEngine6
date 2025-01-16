@@ -1,0 +1,41 @@
+\doxysection{Window.\+h}
+\hypertarget{_window_8h_source}{}\label{_window_8h_source}\index{src/UnbelievableEngine6/Window.h@{src/UnbelievableEngine6/Window.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}SDL2/SDL.h"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <exception>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}gl/glew.h"{}}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{namespace\ }UnbelievableEngine6}
+\DoxyCodeLine{00009\ \{}
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{struct_unbelievable_engine6_1_1_core}{Core}};}
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keyword}{class\ }Window}
+\DoxyCodeLine{00012\ \ \ \ \ \{}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ Window(\textcolor{keywordtype}{int}\ \_width,\ \textcolor{keywordtype}{int}\ \_height);}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \string~Window();}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ window\_initialize(\textcolor{keywordtype}{int}\ \_width,\ \textcolor{keywordtype}{int}\ \_height);}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{struct_unbelievable_engine6_1_1_core}{UnbelievableEngine6::Core}};}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ SDL\_Window*\ m\_raw;}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ SDL\_GLContext\ m\_context;}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ Window(\textcolor{keyword}{const}\ Window\&\ \_copy);}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ Window\&\ operator*(\textcolor{keyword}{const}\ Window\&\ \_assign);}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ m\_width;}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ m\_height;}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \ \ \ \ \};}
+\DoxyCodeLine{00035\ \};}
+
+\end{DoxyCode}

@@ -1,0 +1,145 @@
+\doxysection{Unbelievable\+Engine6\+::Core Struct Reference}
+\hypertarget{struct_unbelievable_engine6_1_1_core}{}\label{struct_unbelievable_engine6_1_1_core}\index{UnbelievableEngine6::Core@{UnbelievableEngine6::Core}}
+
+
+\doxylink{struct_unbelievable_engine6_1_1_core}{Core} class that manages the main engine functionalities.  
+
+
+
+
+{\ttfamily \#include $<$Core.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{struct_unbelievable_engine6_1_1_core_a5274c1628700dca8260d2b108d89a926}\label{struct_unbelievable_engine6_1_1_core_a5274c1628700dca8260d2b108d89a926} 
+void {\bfseries start} ()
+\begin{DoxyCompactList}\small\item\em Starts the main loop of the \doxylink{struct_unbelievable_engine6_1_1_core}{Core}. \end{DoxyCompactList}\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{struct_unbelievable_engine6_1_1_entity}{Entity}} $>$ \mbox{\hyperlink{struct_unbelievable_engine6_1_1_core_ab0aa5f69e5b214f99ce03f145d8899db}{add\+\_\+entity}} ()
+\begin{DoxyCompactList}\small\item\em Adds a new entity to the \doxylink{struct_unbelievable_engine6_1_1_core}{Core}. \end{DoxyCompactList}\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_unbelievable_engine6_1_1_window}{Window}} $>$ \mbox{\hyperlink{struct_unbelievable_engine6_1_1_core_acb66b746b7390b48bb0d36878bfb2025}{window}} () const
+\begin{DoxyCompactList}\small\item\em Gets the window associated with the \doxylink{struct_unbelievable_engine6_1_1_core}{Core}. \end{DoxyCompactList}\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{struct_unbelievable_engine6_1_1_resources}{Resources}} $>$ \mbox{\hyperlink{struct_unbelievable_engine6_1_1_core_acfb6672d66cbd12519be5f7bd4133575}{get\+Resources}} ()
+\begin{DoxyCompactList}\small\item\em Gets the resource manager. \end{DoxyCompactList}\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_unbelievable_engine6_1_1_keyboard}{Keyboard}} $>$ \mbox{\hyperlink{struct_unbelievable_engine6_1_1_core_a8ca079192f159cc2963b6df558584bc9}{get\+Keyboard}} ()
+\begin{DoxyCompactList}\small\item\em Gets the keyboard input handler. \end{DoxyCompactList}\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_unbelievable_engine6_1_1_audio}{Audio}} $>$ \mbox{\hyperlink{struct_unbelievable_engine6_1_1_core_a01ee3821d83ba140b51f96274d7656d2}{get\+Audio}} ()
+\begin{DoxyCompactList}\small\item\em Gets the audio system. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T$>$ }\\void \mbox{\hyperlink{struct_unbelievable_engine6_1_1_core_a0a69e8d14cc1a5a974e7ecc3c8a22040}{find\+\_\+components}} (std\+::vector$<$ std\+::shared\+\_\+ptr$<$ T $>$ $>$ \&\+\_\+out)
+\begin{DoxyCompactList}\small\item\em Finds all components of a specific type in all entities. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{struct_unbelievable_engine6_1_1_core}{Core}} $>$ \mbox{\hyperlink{struct_unbelievable_engine6_1_1_core_a3057af1ee48daea781fbd699fa031867}{initialize}} ()
+\begin{DoxyCompactList}\small\item\em Initializes the \doxylink{struct_unbelievable_engine6_1_1_core}{Core} system. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\doxylink{struct_unbelievable_engine6_1_1_core}{Core} class that manages the main engine functionalities. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{struct_unbelievable_engine6_1_1_core_ab0aa5f69e5b214f99ce03f145d8899db}\index{UnbelievableEngine6::Core@{UnbelievableEngine6::Core}!add\_entity@{add\_entity}}
+\index{add\_entity@{add\_entity}!UnbelievableEngine6::Core@{UnbelievableEngine6::Core}}
+\doxysubsubsection{\texorpdfstring{add\_entity()}{add\_entity()}}
+{\footnotesize\ttfamily \label{struct_unbelievable_engine6_1_1_core_ab0aa5f69e5b214f99ce03f145d8899db} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{struct_unbelievable_engine6_1_1_entity}{Entity}} $>$ Unbelievable\+Engine6\+::\+Core\+::add\+\_\+entity (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Adds a new entity to the \doxylink{struct_unbelievable_engine6_1_1_core}{Core}. 
+
+\begin{DoxyReturn}{Returns}
+std\+::shared\+\_\+ptr$<$\+Entity$>$ A shared pointer to the newly added \doxylink{struct_unbelievable_engine6_1_1_entity}{Entity}. 
+\end{DoxyReturn}
+\Hypertarget{struct_unbelievable_engine6_1_1_core_a0a69e8d14cc1a5a974e7ecc3c8a22040}\index{UnbelievableEngine6::Core@{UnbelievableEngine6::Core}!find\_components@{find\_components}}
+\index{find\_components@{find\_components}!UnbelievableEngine6::Core@{UnbelievableEngine6::Core}}
+\doxysubsubsection{\texorpdfstring{find\_components()}{find\_components()}}
+{\footnotesize\ttfamily \label{struct_unbelievable_engine6_1_1_core_a0a69e8d14cc1a5a974e7ecc3c8a22040} 
+template$<$typename T$>$ \\
+void Unbelievable\+Engine6\+::\+Core\+::find\+\_\+components (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::shared\+\_\+ptr$<$ T $>$ $>$ \&}]{\+\_\+out}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Finds all components of a specific type in all entities. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The type of the components to find. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+out} & A vector to store the found components. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{struct_unbelievable_engine6_1_1_core_a01ee3821d83ba140b51f96274d7656d2}\index{UnbelievableEngine6::Core@{UnbelievableEngine6::Core}!getAudio@{getAudio}}
+\index{getAudio@{getAudio}!UnbelievableEngine6::Core@{UnbelievableEngine6::Core}}
+\doxysubsubsection{\texorpdfstring{getAudio()}{getAudio()}}
+{\footnotesize\ttfamily \label{struct_unbelievable_engine6_1_1_core_a01ee3821d83ba140b51f96274d7656d2} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_unbelievable_engine6_1_1_audio}{Audio}} $>$ Unbelievable\+Engine6\+::\+Core\+::get\+Audio (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Gets the audio system. 
+
+\begin{DoxyReturn}{Returns}
+std\+::shared\+\_\+ptr$<$\+Audio$>$ A shared pointer to the \doxylink{class_unbelievable_engine6_1_1_audio}{Audio}. 
+\end{DoxyReturn}
+\Hypertarget{struct_unbelievable_engine6_1_1_core_a8ca079192f159cc2963b6df558584bc9}\index{UnbelievableEngine6::Core@{UnbelievableEngine6::Core}!getKeyboard@{getKeyboard}}
+\index{getKeyboard@{getKeyboard}!UnbelievableEngine6::Core@{UnbelievableEngine6::Core}}
+\doxysubsubsection{\texorpdfstring{getKeyboard()}{getKeyboard()}}
+{\footnotesize\ttfamily \label{struct_unbelievable_engine6_1_1_core_a8ca079192f159cc2963b6df558584bc9} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_unbelievable_engine6_1_1_keyboard}{Keyboard}} $>$ Unbelievable\+Engine6\+::\+Core\+::get\+Keyboard (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Gets the keyboard input handler. 
+
+\begin{DoxyReturn}{Returns}
+std\+::shared\+\_\+ptr$<$\+Keyboard$>$ A shared pointer to the \doxylink{class_unbelievable_engine6_1_1_keyboard}{Keyboard}. 
+\end{DoxyReturn}
+\Hypertarget{struct_unbelievable_engine6_1_1_core_acfb6672d66cbd12519be5f7bd4133575}\index{UnbelievableEngine6::Core@{UnbelievableEngine6::Core}!getResources@{getResources}}
+\index{getResources@{getResources}!UnbelievableEngine6::Core@{UnbelievableEngine6::Core}}
+\doxysubsubsection{\texorpdfstring{getResources()}{getResources()}}
+{\footnotesize\ttfamily \label{struct_unbelievable_engine6_1_1_core_acfb6672d66cbd12519be5f7bd4133575} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{struct_unbelievable_engine6_1_1_resources}{Resources}} $>$ Unbelievable\+Engine6\+::\+Core\+::get\+Resources (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Gets the resource manager. 
+
+\begin{DoxyReturn}{Returns}
+std\+::shared\+\_\+ptr$<$\+Resources$>$ A shared pointer to the \doxylink{struct_unbelievable_engine6_1_1_resources}{Resources}. 
+\end{DoxyReturn}
+\Hypertarget{struct_unbelievable_engine6_1_1_core_a3057af1ee48daea781fbd699fa031867}\index{UnbelievableEngine6::Core@{UnbelievableEngine6::Core}!initialize@{initialize}}
+\index{initialize@{initialize}!UnbelievableEngine6::Core@{UnbelievableEngine6::Core}}
+\doxysubsubsection{\texorpdfstring{initialize()}{initialize()}}
+{\footnotesize\ttfamily \label{struct_unbelievable_engine6_1_1_core_a3057af1ee48daea781fbd699fa031867} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{struct_unbelievable_engine6_1_1_core}{Core}} $>$ Unbelievable\+Engine6\+::\+Core\+::initialize (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Initializes the \doxylink{struct_unbelievable_engine6_1_1_core}{Core} system. 
+
+\begin{DoxyReturn}{Returns}
+std\+::shared\+\_\+ptr$<$\+Core$>$ A shared pointer to the initialized \doxylink{struct_unbelievable_engine6_1_1_core}{Core}. 
+\end{DoxyReturn}
+\Hypertarget{struct_unbelievable_engine6_1_1_core_acb66b746b7390b48bb0d36878bfb2025}\index{UnbelievableEngine6::Core@{UnbelievableEngine6::Core}!window@{window}}
+\index{window@{window}!UnbelievableEngine6::Core@{UnbelievableEngine6::Core}}
+\doxysubsubsection{\texorpdfstring{window()}{window()}}
+{\footnotesize\ttfamily \label{struct_unbelievable_engine6_1_1_core_acb66b746b7390b48bb0d36878bfb2025} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_unbelievable_engine6_1_1_window}{Window}} $>$ Unbelievable\+Engine6\+::\+Core\+::window (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Gets the window associated with the \doxylink{struct_unbelievable_engine6_1_1_core}{Core}. 
+
+\begin{DoxyReturn}{Returns}
+std\+::shared\+\_\+ptr$<$\+Window$>$ A shared pointer to the \doxylink{class_unbelievable_engine6_1_1_window}{Window}. 
+\end{DoxyReturn}
+
+
+The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\+Unbelievable\+Engine6/Core.\+h\item 
+src/\+Unbelievable\+Engine6/Core.\+cpp\end{DoxyCompactItemize}

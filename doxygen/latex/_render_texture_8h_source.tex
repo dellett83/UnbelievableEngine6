@@ -1,0 +1,38 @@
+\doxysection{Render\+Texture.\+h}
+\hypertarget{_render_texture_8h_source}{}\label{_render_texture_8h_source}\index{src/rend/RenderTexture.h@{src/rend/RenderTexture.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <GL/glew.h>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <glm/glm.hpp>}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <exception>}}
+\DoxyCodeLine{00009\ \textcolor{keyword}{namespace\ }rend}
+\DoxyCodeLine{00010\ \{}
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keyword}{struct\ }RenderTexture}
+\DoxyCodeLine{00012\ \ \ \ \ \{}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ GLuint\ m\_fboId;}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ GLuint\ m\_texId;}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ GLuint\ m\_rboId;}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ m\_width;}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ m\_height;}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ RenderTexture(\textcolor{keywordtype}{int}\ \_width,\ \textcolor{keywordtype}{int}\ \_height);}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \string~RenderTexture();}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ bind();}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ unbind();}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ GLuint\ getTexture();}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ getWidth();}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ getHeight();}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \ \ \ \ \};}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \}}
+
+\end{DoxyCode}

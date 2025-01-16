@@ -1,0 +1,337 @@
+\doxysection{Model.\+h}
+\hypertarget{rend_2_model_8h_source}{}\label{rend_2_model_8h_source}\index{src/rend/Model.h@{src/rend/Model.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#ifndef\ MODEL\_H}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#define\ MODEL\_H}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <GL/glew.h>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <glm/glm.hpp>}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{namespace\ }rend}
+\DoxyCodeLine{00014\ \{}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keyword}{struct\ }Model}
+\DoxyCodeLine{00016\ \ \ \ \ \{}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ Model();}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ Model(\textcolor{keyword}{const}\ std::string\&\ \_path);}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ Model(\textcolor{keyword}{const}\ Model\&\ \_copy);}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ Model\&\ operator=(\textcolor{keyword}{const}\ Model\&\ \_assign);}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \string~Model();}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ GLsizei\ vertex\_count()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ GLuint\ vao\_id();}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }Vertex}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ Vertex();}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ glm::vec3\ position;}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ glm::vec2\ texcoord;}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ glm::vec3\ normal;}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }Face}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ Vertex\ a;}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ Vertex\ b;}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \ \ Vertex\ c;}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ std::vector<Face>\ m\_faces;}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ GLuint\ m\_vaoid;}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ GLuint\ m\_vboid;}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ m\_dirty;}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ split\_string\_whitespace(\textcolor{keyword}{const}\ std::string\&\ \_input,}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<std::string>\&\ \_output);}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ split\_string(\textcolor{keyword}{const}\ std::string\&\ \_input,\ \textcolor{keywordtype}{char}\ \_splitter,}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<std::string>\&\ \_output);}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \ \ \ \ \};}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \textcolor{preprocessor}{\#include\ <stdexcept>}}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keyword}{inline}\ Model::Model()}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ :\ m\_vboid(0)}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ ,\ m\_vaoid(0)}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ ,\ m\_dirty(false)}
+\DoxyCodeLine{00063\ \ \ \ \ \{\ \}}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keyword}{inline}\ Model::Model(\textcolor{keyword}{const}\ std::string\&\ \_path)}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ :\ m\_vboid(0)}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ ,\ m\_vaoid(0)}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ ,\ m\_dirty(false)}
+\DoxyCodeLine{00069\ \ \ \ \ \{}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ std::vector<glm::vec3>\ positions;}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ std::vector<glm::vec2>\ tcs;}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ std::vector<glm::vec3>\ normals;}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ std::string\ currentline;}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ std::ifstream\ file(\_path.c\_str());}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!file.is\_open())}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::runtime\_error(\textcolor{stringliteral}{"{}Failed\ to\ open\ model\ ["{}}\ +\ \_path\ +\ \textcolor{stringliteral}{"{}]"{}});}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (!file.eof())}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ std::getline(file,\ currentline);}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (currentline.length()\ <\ 1)\ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<std::string>\ tokens;}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \ \ \ \ split\_string\_whitespace(currentline,\ tokens);}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (tokens.size()\ <\ 1)\ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (tokens.at(0)\ ==\ \textcolor{stringliteral}{"{}v"{}}\ \&\&\ tokens.size()\ >=\ 4)}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ glm::vec3\ p(atof(tokens.at(1).c\_str()),}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ atof(tokens.at(2).c\_str()),}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ atof(tokens.at(3).c\_str()));}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ positions.push\_back(p);}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (tokens.at(0)\ ==\ \textcolor{stringliteral}{"{}vt"{}}\ \&\&\ tokens.size()\ >=\ 3)}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ glm::vec2\ tc(atof(tokens.at(1).c\_str()),}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 1.0f\ -\/\ atof(tokens.at(2).c\_str()));}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ tcs.push\_back(tc);}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (tokens.at(0)\ ==\ \textcolor{stringliteral}{"{}vn"{}}\ \&\&\ tokens.size()\ >=\ 4)}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ glm::vec3\ n(atof(tokens.at(1).c\_str()),}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ atof(tokens.at(2).c\_str()),}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ atof(tokens.at(3).c\_str()));}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ normals.push\_back(n);}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (tokens.at(0)\ ==\ \textcolor{stringliteral}{"{}f"{}}\ \&\&\ tokens.size()\ >=\ 4)}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Face\ f;}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<std::string>\ sub;}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ split\_string(tokens.at(1),\ \textcolor{charliteral}{'/'},\ sub);}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (sub.size()\ >=\ 1)\ f.a.position\ =\ positions.at(atoi(sub.at(0).c\_str())\ -\/\ 1);}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (sub.size()\ >=\ 2)\ f.a.texcoord\ =\ tcs.at(atoi(sub.at(1).c\_str())\ -\/\ 1);}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (sub.size()\ >=\ 3)\ f.a.normal\ =\ normals.at(atoi(sub.at(2).c\_str())\ -\/\ 1);}
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ ti\ =\ 2;\ ti\ +\ 1\ <\ tokens.size();\ ti++)}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ split\_string(tokens.at(ti),\ \textcolor{charliteral}{'/'},\ sub);}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (sub.size()\ >=\ 1)\ f.b.position\ =\ positions.at(atoi(sub.at(0).c\_str())\ -\/\ 1);}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (sub.size()\ >=\ 2)\ f.b.texcoord\ =\ tcs.at(atoi(sub.at(1).c\_str())\ -\/\ 1);}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (sub.size()\ >=\ 3)\ f.b.normal\ =\ normals.at(atoi(sub.at(2).c\_str())\ -\/\ 1);}
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ split\_string(tokens.at(ti\ +\ 1),\ \textcolor{charliteral}{'/'},\ sub);}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (sub.size()\ >=\ 1)\ f.c.position\ =\ positions.at(atoi(sub.at(0).c\_str())\ -\/\ 1);}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (sub.size()\ >=\ 2)\ f.c.texcoord\ =\ tcs.at(atoi(sub.at(1).c\_str())\ -\/\ 1);}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (sub.size()\ >=\ 3)\ f.c.normal\ =\ normals.at(atoi(sub.at(2).c\_str())\ -\/\ 1);}
+\DoxyCodeLine{00134\ }
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ m\_faces.push\_back(f);}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ m\_dirty\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00140\ \ \ \ \ \}}
+\DoxyCodeLine{00141\ }
+\DoxyCodeLine{00142\ \ \ \ \ \textcolor{keyword}{inline}\ Model::\string~Model()}
+\DoxyCodeLine{00143\ \ \ \ \ \{}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (m\_vaoid)}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \ \ \ \ glDeleteVertexArrays(1,\ \&m\_vaoid);}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00148\ }
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (m\_vboid)}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \ \ \ \ glDeleteBuffers(1,\ \&m\_vboid);}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00153\ \ \ \ \ \}}
+\DoxyCodeLine{00154\ }
+\DoxyCodeLine{00155\ \ \ \ \ \textcolor{keyword}{inline}\ Model::Model(\textcolor{keyword}{const}\ \mbox{\hyperlink{structrend_1_1_model}{Model}}\&\ \_copy)}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ :\ m\_vaoid(0)}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ ,\ m\_vboid(0)}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ ,\ m\_faces(\_copy.m\_faces)}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ ,\ m\_dirty(true)}
+\DoxyCodeLine{00160\ \ \ \ \ \{\ \}}
+\DoxyCodeLine{00161\ }
+\DoxyCodeLine{00162\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{structrend_1_1_model}{Model}}\&\ Model::operator=(\textcolor{keyword}{const}\ \mbox{\hyperlink{structrend_1_1_model}{Model}}\&\ \_assign)}
+\DoxyCodeLine{00163\ \ \ \ \ \{}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ m\_faces\ =\ \_assign.m\_faces;}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ m\_dirty\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00166\ }
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00168\ \ \ \ \ \}}
+\DoxyCodeLine{00169\ }
+\DoxyCodeLine{00170\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ Model::split\_string\_whitespace(\textcolor{keyword}{const}\ std::string\&\ \_input,}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ std::vector<std::string>\&\ \_output)}
+\DoxyCodeLine{00172\ \ \ \ \ \{}
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ std::string\ curr;}
+\DoxyCodeLine{00174\ }
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ \_output.clear();}
+\DoxyCodeLine{00176\ }
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ \_input.length();\ i++)}
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\_input.at(i)\ ==\ \textcolor{charliteral}{'\ '}\ ||}
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_input.at(i)\ ==\ \textcolor{charliteral}{'\(\backslash\)r'}\ ||}
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_input.at(i)\ ==\ \textcolor{charliteral}{'\(\backslash\)n'}\ ||}
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_input.at(i)\ ==\ \textcolor{charliteral}{'\(\backslash\)t'})}
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (curr.length()\ >\ 0)}
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_output.push\_back(curr);}
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ curr\ =\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ curr\ +=\ \_input.at(i);}
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00195\ }
+\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (curr.length()\ >\ 0)}
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ \ \ \ \ \_output.push\_back(curr);}
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00200\ \ \ \ \ \}}
+\DoxyCodeLine{00201\ }
+\DoxyCodeLine{00202\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ Model::split\_string(\textcolor{keyword}{const}\ std::string\&\ \_input,\ \textcolor{keywordtype}{char}\ \_splitter,}
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ std::vector<std::string>\&\ \_output)}
+\DoxyCodeLine{00204\ \ \ \ \ \{}
+\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ std::string\ curr;}
+\DoxyCodeLine{00206\ }
+\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ \_output.clear();}
+\DoxyCodeLine{00208\ }
+\DoxyCodeLine{00209\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ \_input.length();\ i++)}
+\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00211\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\_input.at(i)\ ==\ \_splitter)}
+\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_output.push\_back(curr);}
+\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ curr\ =\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00218\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ curr\ +=\ \_input.at(i);}
+\DoxyCodeLine{00219\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00220\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00221\ }
+\DoxyCodeLine{00222\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (curr.length()\ >\ 0)}
+\DoxyCodeLine{00223\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00224\ \ \ \ \ \ \ \ \ \ \ \ \ \_output.push\_back(curr);}
+\DoxyCodeLine{00225\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00226\ \ \ \ \ \}}
+\DoxyCodeLine{00227\ }
+\DoxyCodeLine{00228\ \ \ \ \ \textcolor{keyword}{inline}\ GLuint\ Model::vao\_id()}
+\DoxyCodeLine{00229\ \ \ \ \ \{}
+\DoxyCodeLine{00230\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!m\_faces.size())}
+\DoxyCodeLine{00231\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00232\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::runtime\_error(\textcolor{stringliteral}{"{}Model\ is\ empty"{}});}
+\DoxyCodeLine{00233\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00234\ }
+\DoxyCodeLine{00235\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!m\_vboid)}
+\DoxyCodeLine{00236\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00237\ \ \ \ \ \ \ \ \ \ \ \ \ glGenBuffers(1,\ \&m\_vboid);}
+\DoxyCodeLine{00238\ }
+\DoxyCodeLine{00239\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!m\_vboid)}
+\DoxyCodeLine{00240\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00241\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::runtime\_error(\textcolor{stringliteral}{"{}Failed\ to\ generate\ vertex\ buffer"{}});}
+\DoxyCodeLine{00242\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00243\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00244\ }
+\DoxyCodeLine{00245\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!m\_vaoid)}
+\DoxyCodeLine{00246\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00247\ \ \ \ \ \ \ \ \ \ \ \ \ glGenVertexArrays(1,\ \&m\_vaoid);}
+\DoxyCodeLine{00248\ }
+\DoxyCodeLine{00249\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!m\_vaoid)}
+\DoxyCodeLine{00250\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00251\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::runtime\_error(\textcolor{stringliteral}{"{}Failed\ to\ generate\ vertex\ array"{}});}
+\DoxyCodeLine{00252\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00253\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00254\ }
+\DoxyCodeLine{00255\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (m\_dirty)}
+\DoxyCodeLine{00256\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00257\ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<GLfloat>\ data;}
+\DoxyCodeLine{00258\ }
+\DoxyCodeLine{00259\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ fi\ =\ 0;\ fi\ <\ m\_faces.size();\ ++fi)}
+\DoxyCodeLine{00260\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00261\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ data.push\_back(m\_faces[fi].a.position.x);}
+\DoxyCodeLine{00262\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ data.push\_back(m\_faces[fi].a.position.y);}
+\DoxyCodeLine{00263\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ data.push\_back(m\_faces[fi].a.position.z);}
+\DoxyCodeLine{00264\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ data.push\_back(m\_faces[fi].a.texcoord.x);}
+\DoxyCodeLine{00265\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ data.push\_back(m\_faces[fi].a.texcoord.y);}
+\DoxyCodeLine{00266\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ data.push\_back(m\_faces[fi].a.normal.x);}
+\DoxyCodeLine{00267\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ data.push\_back(m\_faces[fi].a.normal.y);}
+\DoxyCodeLine{00268\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ data.push\_back(m\_faces[fi].a.normal.z);}
+\DoxyCodeLine{00269\ }
+\DoxyCodeLine{00270\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ data.push\_back(m\_faces[fi].b.position.x);}
+\DoxyCodeLine{00271\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ data.push\_back(m\_faces[fi].b.position.y);}
+\DoxyCodeLine{00272\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ data.push\_back(m\_faces[fi].b.position.z);}
+\DoxyCodeLine{00273\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ data.push\_back(m\_faces[fi].b.texcoord.x);}
+\DoxyCodeLine{00274\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ data.push\_back(m\_faces[fi].b.texcoord.y);}
+\DoxyCodeLine{00275\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ data.push\_back(m\_faces[fi].b.normal.x);}
+\DoxyCodeLine{00276\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ data.push\_back(m\_faces[fi].b.normal.y);}
+\DoxyCodeLine{00277\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ data.push\_back(m\_faces[fi].b.normal.z);}
+\DoxyCodeLine{00278\ }
+\DoxyCodeLine{00279\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ data.push\_back(m\_faces[fi].c.position.x);}
+\DoxyCodeLine{00280\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ data.push\_back(m\_faces[fi].c.position.y);}
+\DoxyCodeLine{00281\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ data.push\_back(m\_faces[fi].c.position.z);}
+\DoxyCodeLine{00282\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ data.push\_back(m\_faces[fi].c.texcoord.x);}
+\DoxyCodeLine{00283\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ data.push\_back(m\_faces[fi].c.texcoord.y);}
+\DoxyCodeLine{00284\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ data.push\_back(m\_faces[fi].c.normal.x);}
+\DoxyCodeLine{00285\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ data.push\_back(m\_faces[fi].c.normal.y);}
+\DoxyCodeLine{00286\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ data.push\_back(m\_faces[fi].c.normal.z);}
+\DoxyCodeLine{00287\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00288\ }
+\DoxyCodeLine{00289\ \ \ \ \ \ \ \ \ \ \ \ \ glBindBuffer(GL\_ARRAY\_BUFFER,\ m\_vboid);}
+\DoxyCodeLine{00290\ \ \ \ \ \ \ \ \ \ \ \ \ glBufferData(GL\_ARRAY\_BUFFER,\ data.size()\ *\ \textcolor{keyword}{sizeof}(data.at(0)),\ \&data.at(0),\ GL\_STATIC\_DRAW);}
+\DoxyCodeLine{00291\ \ \ \ \ \ \ \ \ \ \ \ \ glBindBuffer(GL\_ARRAY\_BUFFER,\ 0);}
+\DoxyCodeLine{00292\ }
+\DoxyCodeLine{00293\ \ \ \ \ \ \ \ \ \ \ \ \ glBindVertexArray(m\_vaoid);}
+\DoxyCodeLine{00294\ \ \ \ \ \ \ \ \ \ \ \ \ glBindBuffer(GL\_ARRAY\_BUFFER,\ m\_vboid);}
+\DoxyCodeLine{00295\ }
+\DoxyCodeLine{00296\ \ \ \ \ \ \ \ \ \ \ \ \ glVertexAttribPointer(0,\ 3,\ GL\_FLOAT,\ GL\_FALSE,}
+\DoxyCodeLine{00297\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 8\ *\ \textcolor{keyword}{sizeof}(data.at(0)),\ (\textcolor{keywordtype}{void}*)0);}
+\DoxyCodeLine{00298\ }
+\DoxyCodeLine{00299\ \ \ \ \ \ \ \ \ \ \ \ \ glEnableVertexAttribArray(0);}
+\DoxyCodeLine{00300\ }
+\DoxyCodeLine{00301\ \ \ \ \ \ \ \ \ \ \ \ \ glVertexAttribPointer(1,\ 2,\ GL\_FLOAT,\ GL\_FALSE,}
+\DoxyCodeLine{00302\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 8\ *\ \textcolor{keyword}{sizeof}(data.at(0)),\ (\textcolor{keywordtype}{void}*)(3\ *\ \textcolor{keyword}{sizeof}(GLfloat)));}
+\DoxyCodeLine{00303\ }
+\DoxyCodeLine{00304\ \ \ \ \ \ \ \ \ \ \ \ \ glEnableVertexAttribArray(1);}
+\DoxyCodeLine{00305\ }
+\DoxyCodeLine{00306\ \ \ \ \ \ \ \ \ \ \ \ \ glVertexAttribPointer(2,\ 3,\ GL\_FLOAT,\ GL\_FALSE,}
+\DoxyCodeLine{00307\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 8\ *\ \textcolor{keyword}{sizeof}(data.at(0)),\ (\textcolor{keywordtype}{void}*)(5\ *\ \textcolor{keyword}{sizeof}(GLfloat)));}
+\DoxyCodeLine{00308\ }
+\DoxyCodeLine{00309\ \ \ \ \ \ \ \ \ \ \ \ \ glEnableVertexAttribArray(2);}
+\DoxyCodeLine{00310\ }
+\DoxyCodeLine{00311\ \ \ \ \ \ \ \ \ \ \ \ \ glBindVertexArray(0);}
+\DoxyCodeLine{00312\ \ \ \ \ \ \ \ \ \ \ \ \ glBindBuffer(GL\_ARRAY\_BUFFER,\ 0);}
+\DoxyCodeLine{00313\ }
+\DoxyCodeLine{00314\ \ \ \ \ \ \ \ \ \ \ \ \ m\_dirty\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00315\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00316\ }
+\DoxyCodeLine{00317\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ m\_vaoid;}
+\DoxyCodeLine{00318\ \ \ \ \ \}}
+\DoxyCodeLine{00319\ }
+\DoxyCodeLine{00320\ \ \ \ \ \textcolor{keyword}{inline}\ GLsizei\ Model::vertex\_count()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00321\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00322\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (GLsizei)m\_faces.size()\ *\ 3;}
+\DoxyCodeLine{00323\ \ \ \ \ \}}
+\DoxyCodeLine{00324\ }
+\DoxyCodeLine{00325\ \ \ \ \ \textcolor{keyword}{inline}\ Model::Vertex::Vertex()}
+\DoxyCodeLine{00326\ \ \ \ \ \ \ \ \ :\ position(0,\ 0,\ 0)}
+\DoxyCodeLine{00327\ \ \ \ \ \ \ \ \ ,\ texcoord(0,\ 0)}
+\DoxyCodeLine{00328\ \ \ \ \ \ \ \ \ ,\ normal(0,\ 0,\ 0)}
+\DoxyCodeLine{00329\ \ \ \ \ \{\ \}}
+\DoxyCodeLine{00330\ \};}
+\DoxyCodeLine{00331\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

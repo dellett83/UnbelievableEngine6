@@ -1,0 +1,148 @@
+\doxysection{Unbelievable\+Engine6\+::Component Struct Reference}
+\hypertarget{struct_unbelievable_engine6_1_1_component}{}\label{struct_unbelievable_engine6_1_1_component}\index{UnbelievableEngine6::Component@{UnbelievableEngine6::Component}}
+
+
+Base class for all components in the engine.  
+
+
+
+
+{\ttfamily \#include $<$Component.\+h$>$}
+
+Inheritance diagram for Unbelievable\+Engine6\+::Component\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=0.655738cm]{struct_unbelievable_engine6_1_1_component}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{struct_unbelievable_engine6_1_1_component_a6f09db0c0e4435e7bd257948ec29e009}{on\+\_\+initialize}} ()
+\begin{DoxyCompactList}\small\item\em Called when the component is initialized. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{struct_unbelievable_engine6_1_1_component_a3f8346732162c9254b4f7fc5a1410179}{on\+\_\+tick}} ()
+\begin{DoxyCompactList}\small\item\em Called every frame to update the component. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{struct_unbelievable_engine6_1_1_component_af7ae6602c8081ae7126e764e9b9bb5df}{on\+\_\+render}} ()
+\begin{DoxyCompactList}\small\item\em Called every frame to render the component. \end{DoxyCompactList}\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{struct_unbelievable_engine6_1_1_entity}{Entity}} $>$ \mbox{\hyperlink{struct_unbelievable_engine6_1_1_component_acfff628ce8864e962e534889266c9f62}{entity}} ()
+\begin{DoxyCompactList}\small\item\em Gets the entity that this component is attached to. \end{DoxyCompactList}\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{struct_unbelievable_engine6_1_1_transform}{Transform}} $>$ \mbox{\hyperlink{struct_unbelievable_engine6_1_1_component_a60e33efa1a5bfba47569eee8103a385e}{transform}} ()
+\begin{DoxyCompactList}\small\item\em Gets the transform component of the entity. \end{DoxyCompactList}\item 
+glm\+::vec3 \mbox{\hyperlink{struct_unbelievable_engine6_1_1_component_aeb779e2f639900a9440f89e408e92c9c}{position}} ()
+\begin{DoxyCompactList}\small\item\em Gets the position of the entity. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{struct_unbelievable_engine6_1_1_component_a1ff3815fd2c7f7f9a33afe12e613b495}{set\+Position}} (glm\+::vec3 \+\_\+position)
+\begin{DoxyCompactList}\small\item\em Sets the position of the entity. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{struct_unbelievable_engine6_1_1_component_a4de4c6926260be1262f425df15fc9c82}\label{struct_unbelievable_engine6_1_1_component_a4de4c6926260be1262f425df15fc9c82} 
+struct {\bfseries Entity}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Base class for all components in the engine. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{struct_unbelievable_engine6_1_1_component_acfff628ce8864e962e534889266c9f62}\index{UnbelievableEngine6::Component@{UnbelievableEngine6::Component}!entity@{entity}}
+\index{entity@{entity}!UnbelievableEngine6::Component@{UnbelievableEngine6::Component}}
+\doxysubsubsection{\texorpdfstring{entity()}{entity()}}
+{\footnotesize\ttfamily \label{struct_unbelievable_engine6_1_1_component_acfff628ce8864e962e534889266c9f62} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{struct_unbelievable_engine6_1_1_entity}{Entity}} $>$ Unbelievable\+Engine6\+::\+Component\+::entity (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Gets the entity that this component is attached to. 
+
+\begin{DoxyReturn}{Returns}
+std\+::shared\+\_\+ptr$<$\+Entity$>$ A shared pointer to the entity. 
+\end{DoxyReturn}
+\Hypertarget{struct_unbelievable_engine6_1_1_component_a6f09db0c0e4435e7bd257948ec29e009}\index{UnbelievableEngine6::Component@{UnbelievableEngine6::Component}!on\_initialize@{on\_initialize}}
+\index{on\_initialize@{on\_initialize}!UnbelievableEngine6::Component@{UnbelievableEngine6::Component}}
+\doxysubsubsection{\texorpdfstring{on\_initialize()}{on\_initialize()}}
+{\footnotesize\ttfamily \label{struct_unbelievable_engine6_1_1_component_a6f09db0c0e4435e7bd257948ec29e009} 
+void Unbelievable\+Engine6\+::\+Component\+::on\+\_\+initialize (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Called when the component is initialized. 
+
+
+
+Reimplemented in \mbox{\hyperlink{struct_player_ab24178844b96f9ec0c07c5c9a4c69b2c}{Player}}, \mbox{\hyperlink{struct_unbelievable_engine6_1_1_model_renderer_a4ef972010872f0426d60eb53deb2b3f3}{Unbelievable\+Engine6\+::\+Model\+Renderer}}, and \mbox{\hyperlink{struct_unbelievable_engine6_1_1_transform_a159f6ad715c1dc31df8c54f5f79fafaf}{Unbelievable\+Engine6\+::\+Transform}}.
+
+\Hypertarget{struct_unbelievable_engine6_1_1_component_af7ae6602c8081ae7126e764e9b9bb5df}\index{UnbelievableEngine6::Component@{UnbelievableEngine6::Component}!on\_render@{on\_render}}
+\index{on\_render@{on\_render}!UnbelievableEngine6::Component@{UnbelievableEngine6::Component}}
+\doxysubsubsection{\texorpdfstring{on\_render()}{on\_render()}}
+{\footnotesize\ttfamily \label{struct_unbelievable_engine6_1_1_component_af7ae6602c8081ae7126e764e9b9bb5df} 
+void Unbelievable\+Engine6\+::\+Component\+::on\+\_\+render (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Called every frame to render the component. 
+
+
+
+Reimplemented in \mbox{\hyperlink{struct_unbelievable_engine6_1_1_model_renderer_a80626b3a997ac37b22b29d61c8ccb086}{Unbelievable\+Engine6\+::\+Model\+Renderer}}, and \mbox{\hyperlink{struct_unbelievable_engine6_1_1_triangle_renderer_a79325175dbaec1a1cc7bd9e8d3d8f8fd}{Unbelievable\+Engine6\+::\+Triangle\+Renderer}}.
+
+\Hypertarget{struct_unbelievable_engine6_1_1_component_a3f8346732162c9254b4f7fc5a1410179}\index{UnbelievableEngine6::Component@{UnbelievableEngine6::Component}!on\_tick@{on\_tick}}
+\index{on\_tick@{on\_tick}!UnbelievableEngine6::Component@{UnbelievableEngine6::Component}}
+\doxysubsubsection{\texorpdfstring{on\_tick()}{on\_tick()}}
+{\footnotesize\ttfamily \label{struct_unbelievable_engine6_1_1_component_a3f8346732162c9254b4f7fc5a1410179} 
+void Unbelievable\+Engine6\+::\+Component\+::on\+\_\+tick (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Called every frame to update the component. 
+
+
+
+Reimplemented in \mbox{\hyperlink{struct_player_a19985b4ff32c47ee703466ce12a97158}{Player}}.
+
+\Hypertarget{struct_unbelievable_engine6_1_1_component_aeb779e2f639900a9440f89e408e92c9c}\index{UnbelievableEngine6::Component@{UnbelievableEngine6::Component}!position@{position}}
+\index{position@{position}!UnbelievableEngine6::Component@{UnbelievableEngine6::Component}}
+\doxysubsubsection{\texorpdfstring{position()}{position()}}
+{\footnotesize\ttfamily \label{struct_unbelievable_engine6_1_1_component_aeb779e2f639900a9440f89e408e92c9c} 
+glm\+::vec3 Unbelievable\+Engine6\+::\+Component\+::position (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Gets the position of the entity. 
+
+\begin{DoxyReturn}{Returns}
+glm\+::vec3 The position of the entity. 
+\end{DoxyReturn}
+\Hypertarget{struct_unbelievable_engine6_1_1_component_a1ff3815fd2c7f7f9a33afe12e613b495}\index{UnbelievableEngine6::Component@{UnbelievableEngine6::Component}!setPosition@{setPosition}}
+\index{setPosition@{setPosition}!UnbelievableEngine6::Component@{UnbelievableEngine6::Component}}
+\doxysubsubsection{\texorpdfstring{setPosition()}{setPosition()}}
+{\footnotesize\ttfamily \label{struct_unbelievable_engine6_1_1_component_a1ff3815fd2c7f7f9a33afe12e613b495} 
+void Unbelievable\+Engine6\+::\+Component\+::set\+Position (\begin{DoxyParamCaption}\item[{glm\+::vec3}]{\+\_\+position}{}\end{DoxyParamCaption})}
+
+
+
+Sets the position of the entity. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+position} & The new position of the entity. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{struct_unbelievable_engine6_1_1_component_a60e33efa1a5bfba47569eee8103a385e}\index{UnbelievableEngine6::Component@{UnbelievableEngine6::Component}!transform@{transform}}
+\index{transform@{transform}!UnbelievableEngine6::Component@{UnbelievableEngine6::Component}}
+\doxysubsubsection{\texorpdfstring{transform()}{transform()}}
+{\footnotesize\ttfamily \label{struct_unbelievable_engine6_1_1_component_a60e33efa1a5bfba47569eee8103a385e} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{struct_unbelievable_engine6_1_1_transform}{Transform}} $>$ Unbelievable\+Engine6\+::\+Component\+::transform (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Gets the transform component of the entity. 
+
+\begin{DoxyReturn}{Returns}
+std\+::shared\+\_\+ptr$<$\+Transform$>$ A shared pointer to the transform component. 
+\end{DoxyReturn}
+
+
+The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\+Unbelievable\+Engine6/Component.\+h\item 
+src/\+Unbelievable\+Engine6/Component.\+cpp\end{DoxyCompactItemize}

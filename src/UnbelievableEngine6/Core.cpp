@@ -65,8 +65,6 @@ namespace UnbelievableEngine6
 		std::vector<std::shared_ptr<Resource> > m_resources;
 	};
 
-
-
 	void Core::start()
 	{
 		bool running = true;
@@ -96,7 +94,6 @@ namespace UnbelievableEngine6
 			glClearColor(1, 1, 0, 1);
 			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-
 			for (size_t ent = 0; ent < m_entities.size(); ent++)
 			{
 				m_entities.at(ent)->on_render();
@@ -105,7 +102,6 @@ namespace UnbelievableEngine6
 			SDL_GL_SwapWindow(m_window->m_raw);
 		}
 	}
-
 	std::shared_ptr<Keyboard> Core::getKeyboard() {
 		return m_input->getKeyboard();
 	}

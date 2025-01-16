@@ -1,0 +1,94 @@
+\doxysection{Unbelievable\+Engine6\+::Entity Struct Reference}
+\hypertarget{struct_unbelievable_engine6_1_1_entity}{}\label{struct_unbelievable_engine6_1_1_entity}\index{UnbelievableEngine6::Entity@{UnbelievableEngine6::Entity}}
+
+
+Represents an entity in the engine.  
+
+
+
+
+{\ttfamily \#include $<$Entity.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T$>$ }\\std\+::shared\+\_\+ptr$<$ T $>$ \mbox{\hyperlink{struct_unbelievable_engine6_1_1_entity_a2ae9066113ed541f7c8f36e48372a605}{add\+\_\+component}} ()
+\begin{DoxyCompactList}\small\item\em Adds a new component to the entity. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T$>$ }\\std\+::shared\+\_\+ptr$<$ T $>$ \mbox{\hyperlink{struct_unbelievable_engine6_1_1_entity_a7770a1cec6e4c33094272183a5aa82b3}{get\+\_\+component}} ()
+\begin{DoxyCompactList}\small\item\em Gets a component of the specified type from the entity. \end{DoxyCompactList}\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{struct_unbelievable_engine6_1_1_core}{Core}} $>$ \mbox{\hyperlink{struct_unbelievable_engine6_1_1_entity_abeb518cc793b4484ea5a8e7ccad63872}{core}} ()
+\begin{DoxyCompactList}\small\item\em Gets the core system that this entity is part of. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{struct_unbelievable_engine6_1_1_entity_a9306248d074325e068a5b3e66d460ea2}\label{struct_unbelievable_engine6_1_1_entity_a9306248d074325e068a5b3e66d460ea2} 
+struct {\bfseries Unbelievable\+Engine6\+::\+Core}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents an entity in the engine. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{struct_unbelievable_engine6_1_1_entity_a2ae9066113ed541f7c8f36e48372a605}\index{UnbelievableEngine6::Entity@{UnbelievableEngine6::Entity}!add\_component@{add\_component}}
+\index{add\_component@{add\_component}!UnbelievableEngine6::Entity@{UnbelievableEngine6::Entity}}
+\doxysubsubsection{\texorpdfstring{add\_component()}{add\_component()}}
+{\footnotesize\ttfamily \label{struct_unbelievable_engine6_1_1_entity_a2ae9066113ed541f7c8f36e48372a605} 
+template$<$typename T$>$ \\
+std\+::shared\+\_\+ptr$<$ T $>$ Unbelievable\+Engine6\+::\+Entity\+::add\+\_\+component (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Adds a new component to the entity. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The type of the component to add. \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyReturn}{Returns}
+std\+::shared\+\_\+ptr$<$\+T$>$ A shared pointer to the newly added component. 
+\end{DoxyReturn}
+\Hypertarget{struct_unbelievable_engine6_1_1_entity_abeb518cc793b4484ea5a8e7ccad63872}\index{UnbelievableEngine6::Entity@{UnbelievableEngine6::Entity}!core@{core}}
+\index{core@{core}!UnbelievableEngine6::Entity@{UnbelievableEngine6::Entity}}
+\doxysubsubsection{\texorpdfstring{core()}{core()}}
+{\footnotesize\ttfamily \label{struct_unbelievable_engine6_1_1_entity_abeb518cc793b4484ea5a8e7ccad63872} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{struct_unbelievable_engine6_1_1_core}{Core}} $>$ Unbelievable\+Engine6\+::\+Entity\+::core (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets the core system that this entity is part of. 
+
+\begin{DoxyReturn}{Returns}
+std\+::shared\+\_\+ptr$<$\+Core$>$ A shared pointer to the \doxylink{struct_unbelievable_engine6_1_1_core}{Core}. 
+\end{DoxyReturn}
+\Hypertarget{struct_unbelievable_engine6_1_1_entity_a7770a1cec6e4c33094272183a5aa82b3}\index{UnbelievableEngine6::Entity@{UnbelievableEngine6::Entity}!get\_component@{get\_component}}
+\index{get\_component@{get\_component}!UnbelievableEngine6::Entity@{UnbelievableEngine6::Entity}}
+\doxysubsubsection{\texorpdfstring{get\_component()}{get\_component()}}
+{\footnotesize\ttfamily \label{struct_unbelievable_engine6_1_1_entity_a7770a1cec6e4c33094272183a5aa82b3} 
+template$<$typename T$>$ \\
+std\+::shared\+\_\+ptr$<$ T $>$ Unbelievable\+Engine6\+::\+Entity\+::get\+\_\+component (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets a component of the specified type from the entity. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The type of the component to get. \\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyReturn}{Returns}
+std\+::shared\+\_\+ptr$<$\+T$>$ A shared pointer to the component. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::runtime\+\_\+error} & If the component is not found. \\
+\hline
+\end{DoxyExceptions}
+
+
+The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\+Unbelievable\+Engine6/Entity.\+h\item 
+src/\+Unbelievable\+Engine6/Entity.\+cpp\end{DoxyCompactItemize}

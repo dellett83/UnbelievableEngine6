@@ -1,0 +1,60 @@
+\doxysection{Entity.\+h}
+\hypertarget{_entity_8h_source}{}\label{_entity_8h_source}\index{src/UnbelievableEngine6/Entity.h@{src/UnbelievableEngine6/Entity.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{keyword}{namespace\ }UnbelievableEngine6}
+\DoxyCodeLine{00007\ \{}
+\DoxyCodeLine{00008\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_unbelievable_engine6_1_1_core}{Core}};}
+\DoxyCodeLine{00009\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_unbelievable_engine6_1_1_component}{Component}};}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_unbelievable_engine6_1_1_entity}{Entity}}}
+\DoxyCodeLine{00015\ \ \ \ \ \{}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ std::shared\_ptr<T>\ \mbox{\hyperlink{struct_unbelievable_engine6_1_1_entity_a2ae9066113ed541f7c8f36e48372a605}{add\_component}}()}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \ \ \ \ std::shared\_ptr<T>\ rtn\ =\ std::make\_shared<T>();}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \ \ \ \ rtn-\/>m\_entity\ =\ m\_self;}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \ rtn-\/>on\_initialize();}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ m\_components.push\_back(rtn);}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ rtn;}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ std::shared\_ptr<T>\ \mbox{\hyperlink{struct_unbelievable_engine6_1_1_entity_a7770a1cec6e4c33094272183a5aa82b3}{get\_component}}()}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ ci\ =\ 0;\ ci\ <\ m\_components.size();\ ++ci)}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::shared\_ptr<T>\ rtn\ =\ std::dynamic\_pointer\_cast<T>(m\_components.at(ci));}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (rtn)\ \textcolor{keywordflow}{return}\ rtn;}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::runtime\_error(\textcolor{stringliteral}{"{}Failed\ to\ find\ component"{}});}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ std::shared\_ptr<Core>\ \mbox{\hyperlink{struct_unbelievable_engine6_1_1_entity_abeb518cc793b4484ea5a8e7ccad63872}{core}}()}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ m\_core.lock();}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_unbelievable_engine6_1_1_core}{UnbelievableEngine6::Core}};}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ std::weak\_ptr<Core>\ m\_core;\ }
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ std::weak\_ptr<Entity>\ m\_self;\ }
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ std::vector<std::shared\_ptr<Component>>\ m\_components;\ }
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ tick();}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ on\_render();}
+\DoxyCodeLine{00079\ \ \ \ \ \};}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ \}}
+
+\end{DoxyCode}

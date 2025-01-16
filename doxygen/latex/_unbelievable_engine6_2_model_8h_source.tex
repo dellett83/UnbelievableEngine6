@@ -1,0 +1,26 @@
+\doxysection{Model.\+h}
+\hypertarget{_unbelievable_engine6_2_model_8h_source}{}\label{_unbelievable_engine6_2_model_8h_source}\index{src/UnbelievableEngine6/Model.h@{src/UnbelievableEngine6/Model.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}Resource.h"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}rend/Model.h"{}}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{namespace\ }UnbelievableEngine6}
+\DoxyCodeLine{00010\ \{}
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_unbelievable_engine6_1_1_model}{Model}}\ :\ \mbox{\hyperlink{struct_unbelievable_engine6_1_1_resource}{Resource}}}
+\DoxyCodeLine{00012\ \ \ \ \ \{}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ onLoad()\ \{\ m\_model\ =\ std::make\_shared<rend::Model>(getPath()\ +\ \textcolor{stringliteral}{"{}.obj"{}});\ \}}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ std::shared\_ptr<rend::Model>\ getModel()\ \{\ \textcolor{keywordflow}{return}\ m\_model;\ \}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{struct\ }ModelRenderer;}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ std::shared\_ptr<rend::Model>\ m\_model;}
+\DoxyCodeLine{00019\ \ \ \ \ \};}
+\DoxyCodeLine{00020\ \};}
+
+\end{DoxyCode}

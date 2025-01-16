@@ -21,6 +21,16 @@ struct Player : public Component
 			transform()->setPosition(transform()->getPosition() + glm::vec3(-0.1f, 0.f, 0.f));
 		}
 
+		if (entity()->core()->getKeyboard()->isKeyPressed(SDLK_w))
+		{
+			transform()->setPosition(transform()->getPosition() + glm::vec3(0.f, 0.f, 0.1f));
+		}
+
+		else if (entity()->core()->getKeyboard()->isKeyPressed(SDLK_s))
+		{
+			transform()->setPosition(transform()->getPosition() + glm::vec3(0.f, 0.f, -0.1f));
+		}
+
 		else if (entity()->core()->getKeyboard()->isKeyPressed(SDLK_SPACE))
 		{
 			transform()->setPosition(transform()->getPosition() + glm::vec3(0.f, 0.1f, 0.f));
@@ -51,7 +61,7 @@ int main() {
 
 	std::shared_ptr<BoxCollider> bc = ent->add_component<BoxCollider>();
 	bc->setOffset(glm::vec3(0, 0.3f, 0.5f));
-	bc->setSize(glm::vec3(0, 0.3f, 0.5f));
+	bc->setSize(ent->get_component<Transform>()->getScale());
 	ent->add_component<Rigidbody>();
 
   //Entity 2
@@ -66,9 +76,8 @@ int main() {
 
 	std::shared_ptr<BoxCollider> bc2 = ent2->add_component<BoxCollider>();
 	bc2->setOffset(glm::vec3(0, 0.3f, 0.5f));
-	bc2->setSize(glm::vec3(0, 0.3f, 0.5f));
+	bc2->setSize(ent2->get_component<Transform>()->getScale());
 	ent2->add_component<Rigidbody>();
-
 
 	std::shared_ptr<AudioSource> as = ent->add_component<AudioSource>();
 	std::shared_ptr<Sound> sound = core->getResources()->load<Sound>("audio/dixie_horn");

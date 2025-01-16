@@ -23,8 +23,10 @@ namespace UnbelievableEngine6
 			{
 				std::cout << "hit" << std::endl;
 			}
-		
+			else
+			{
+				std::cout << "not hit" << std::endl;
+			}
 		}
-
 	}
 }

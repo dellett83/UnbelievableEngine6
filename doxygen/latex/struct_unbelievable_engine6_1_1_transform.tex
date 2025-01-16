@@ -1,0 +1,78 @@
+\doxysection{Unbelievable\+Engine6\+::Transform Struct Reference}
+\hypertarget{struct_unbelievable_engine6_1_1_transform}{}\label{struct_unbelievable_engine6_1_1_transform}\index{UnbelievableEngine6::Transform@{UnbelievableEngine6::Transform}}
+Inheritance diagram for Unbelievable\+Engine6\+::Transform\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{struct_unbelievable_engine6_1_1_transform}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{struct_unbelievable_engine6_1_1_transform_a159f6ad715c1dc31df8c54f5f79fafaf}{on\+\_\+initialize}} ()
+\begin{DoxyCompactList}\small\item\em Called when the component is initialized. \end{DoxyCompactList}\item 
+\Hypertarget{struct_unbelievable_engine6_1_1_transform_aa2544920a36ca4e515a91113247a32c6}\label{struct_unbelievable_engine6_1_1_transform_aa2544920a36ca4e515a91113247a32c6} 
+glm\+::mat4 {\bfseries model} ()
+\item 
+\Hypertarget{struct_unbelievable_engine6_1_1_transform_a884c7f27ccb64fe1b2139aa50a778d5c}\label{struct_unbelievable_engine6_1_1_transform_a884c7f27ccb64fe1b2139aa50a778d5c} 
+void {\bfseries set\+Position} (glm\+::vec3 \+\_\+position)
+\item 
+\Hypertarget{struct_unbelievable_engine6_1_1_transform_a1848796888be69c9ee2f88eea1474fb4}\label{struct_unbelievable_engine6_1_1_transform_a1848796888be69c9ee2f88eea1474fb4} 
+glm\+::vec3 {\bfseries get\+Position} ()
+\item 
+\Hypertarget{struct_unbelievable_engine6_1_1_transform_adf0b5c644044ef71992b333b7f0e8182}\label{struct_unbelievable_engine6_1_1_transform_adf0b5c644044ef71992b333b7f0e8182} 
+void {\bfseries set\+Rotation} (glm\+::vec3 \+\_\+rotation)
+\item 
+\Hypertarget{struct_unbelievable_engine6_1_1_transform_ab17f3e677fa8604f8adc781a9df7ef6a}\label{struct_unbelievable_engine6_1_1_transform_ab17f3e677fa8604f8adc781a9df7ef6a} 
+glm\+::vec3 {\bfseries get\+Rotation} ()
+\item 
+\Hypertarget{struct_unbelievable_engine6_1_1_transform_abdc1f68c5054f38d1518f45a42611da8}\label{struct_unbelievable_engine6_1_1_transform_abdc1f68c5054f38d1518f45a42611da8} 
+void {\bfseries set\+Scale} (glm\+::vec3 \+\_\+scale)
+\item 
+\Hypertarget{struct_unbelievable_engine6_1_1_transform_af9bc5d98683b302e02fdc0d9f6099a57}\label{struct_unbelievable_engine6_1_1_transform_af9bc5d98683b302e02fdc0d9f6099a57} 
+glm\+::vec3 {\bfseries get\+Scale} ()
+\item 
+\Hypertarget{struct_unbelievable_engine6_1_1_transform_a9c5d30fe194ac331dc3581bae97a962a}\label{struct_unbelievable_engine6_1_1_transform_a9c5d30fe194ac331dc3581bae97a962a} 
+void {\bfseries Movement} (glm\+::vec3 \+\_\+amount)
+\item 
+\Hypertarget{struct_unbelievable_engine6_1_1_transform_a497ec1f85544919f3603d809922a2733}\label{struct_unbelievable_engine6_1_1_transform_a497ec1f85544919f3603d809922a2733} 
+void {\bfseries Rotation} (glm\+::vec3 \+\_\+amount)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{struct_unbelievable_engine6_1_1_component}{Unbelievable\+Engine6\+::\+Component}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{struct_unbelievable_engine6_1_1_component_a3f8346732162c9254b4f7fc5a1410179}{on\+\_\+tick}} ()
+\begin{DoxyCompactList}\small\item\em Called every frame to update the component. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{struct_unbelievable_engine6_1_1_component_af7ae6602c8081ae7126e764e9b9bb5df}{on\+\_\+render}} ()
+\begin{DoxyCompactList}\small\item\em Called every frame to render the component. \end{DoxyCompactList}\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{struct_unbelievable_engine6_1_1_entity}{Entity}} $>$ \mbox{\hyperlink{struct_unbelievable_engine6_1_1_component_acfff628ce8864e962e534889266c9f62}{entity}} ()
+\begin{DoxyCompactList}\small\item\em Gets the entity that this component is attached to. \end{DoxyCompactList}\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{struct_unbelievable_engine6_1_1_transform}{Transform}} $>$ \mbox{\hyperlink{struct_unbelievable_engine6_1_1_component_a60e33efa1a5bfba47569eee8103a385e}{transform}} ()
+\begin{DoxyCompactList}\small\item\em Gets the transform component of the entity. \end{DoxyCompactList}\item 
+glm\+::vec3 \mbox{\hyperlink{struct_unbelievable_engine6_1_1_component_aeb779e2f639900a9440f89e408e92c9c}{position}} ()
+\begin{DoxyCompactList}\small\item\em Gets the position of the entity. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{struct_unbelievable_engine6_1_1_component_a1ff3815fd2c7f7f9a33afe12e613b495}{set\+Position}} (glm\+::vec3 \+\_\+position)
+\begin{DoxyCompactList}\small\item\em Sets the position of the entity. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{struct_unbelievable_engine6_1_1_transform_a159f6ad715c1dc31df8c54f5f79fafaf}\index{UnbelievableEngine6::Transform@{UnbelievableEngine6::Transform}!on\_initialize@{on\_initialize}}
+\index{on\_initialize@{on\_initialize}!UnbelievableEngine6::Transform@{UnbelievableEngine6::Transform}}
+\doxysubsubsection{\texorpdfstring{on\_initialize()}{on\_initialize()}}
+{\footnotesize\ttfamily \label{struct_unbelievable_engine6_1_1_transform_a159f6ad715c1dc31df8c54f5f79fafaf} 
+void Unbelievable\+Engine6\+::\+Transform\+::on\+\_\+initialize (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Called when the component is initialized. 
+
+
+
+Reimplemented from \mbox{\hyperlink{struct_unbelievable_engine6_1_1_component_a6f09db0c0e4435e7bd257948ec29e009}{Unbelievable\+Engine6\+::\+Component}}.
+
+
+
+The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\+Unbelievable\+Engine6/Transform.\+h\item 
+src/\+Unbelievable\+Engine6/Transform.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,27 @@
+\doxysection{Box\+Collider.\+h}
+\hypertarget{_box_collider_8h_source}{}\label{_box_collider_8h_source}\index{src/UnbelievableEngine6/BoxCollider.h@{src/UnbelievableEngine6/BoxCollider.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}Component.h"{}}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{keyword}{namespace\ }UnbelievableEngine6}
+\DoxyCodeLine{00006\ \{}
+\DoxyCodeLine{00007\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_unbelievable_engine6_1_1_box_collider}{BoxCollider}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{struct_unbelievable_engine6_1_1_component}{Component}}}
+\DoxyCodeLine{00008\ \ \ \ \ \{}
+\DoxyCodeLine{00009\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00010\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ isColliding(std::shared\_ptr<BoxCollider>\ \_other);}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ setSize(glm::vec3\ \_size)\ \{\ m\_size\ =\ \_size;\ \}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ setOffset(glm::vec3\ \_offset)\ \{\ m\_offset\ =\ \_offset;\ \}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ glm::vec3\ m\_size\{\ 1\ \};}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ glm::vec3\ m\_offset\{\ 0\ \};}
+\DoxyCodeLine{00020\ \ \ \ \ \};}
+\DoxyCodeLine{00021\ \};}
+
+\end{DoxyCode}

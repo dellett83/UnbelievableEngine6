@@ -1,0 +1,64 @@
+\doxysection{Core.\+h}
+\hypertarget{_core_8h_source}{}\label{_core_8h_source}\index{src/UnbelievableEngine6/Core.h@{src/UnbelievableEngine6/Core.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}Audio.h"{}}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{namespace\ }UnbelievableEngine6}
+\DoxyCodeLine{00009\ \{}
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_unbelievable_engine6_1_1_entity}{Entity}};}
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{class_unbelievable_engine6_1_1_window}{Window}};}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_unbelievable_engine6_1_1_resources}{Resources}};}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_unbelievable_engine6_1_1_input}{Input}};}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{class_unbelievable_engine6_1_1_keyboard}{Keyboard}};}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_unbelievable_engine6_1_1_core}{Core}}}
+\DoxyCodeLine{00020\ \ \ \ \ \{}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ std::shared\_ptr<Core>\ \mbox{\hyperlink{struct_unbelievable_engine6_1_1_core_a3057af1ee48daea781fbd699fa031867}{initialize}}();}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{struct_unbelievable_engine6_1_1_core_a5274c1628700dca8260d2b108d89a926}{start}}();}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ std::shared\_ptr<Entity>\ \mbox{\hyperlink{struct_unbelievable_engine6_1_1_core_ab0aa5f69e5b214f99ce03f145d8899db}{add\_entity}}();}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ std::shared\_ptr<Window>\ \mbox{\hyperlink{struct_unbelievable_engine6_1_1_core_acb66b746b7390b48bb0d36878bfb2025}{window}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ std::shared\_ptr<Resources>\ \mbox{\hyperlink{struct_unbelievable_engine6_1_1_core_acfb6672d66cbd12519be5f7bd4133575}{getResources}}();}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ std::shared\_ptr<Keyboard>\ \mbox{\hyperlink{struct_unbelievable_engine6_1_1_core_a8ca079192f159cc2963b6df558584bc9}{getKeyboard}}();}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ std::shared\_ptr<Audio>\ \mbox{\hyperlink{struct_unbelievable_engine6_1_1_core_a01ee3821d83ba140b51f96274d7656d2}{getAudio}}();}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{struct_unbelievable_engine6_1_1_core_a0a69e8d14cc1a5a974e7ecc3c8a22040}{find\_components}}(std::vector<std::shared\_ptr<T>>\&\ \_out)}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ ei\ =\ 0;\ ei\ <\ m\_entities.size();\ ++ei)}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::shared\_ptr<Entity>\ e\ =\ m\_entities.at(ei);}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ ci\ =\ 0;\ ci\ <\ e-\/>m\_components.size();\ ++ci)}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::shared\_ptr<Component>\ c\ =\ e-\/>m\_components.at(ci);}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::shared\_ptr<T>\ t\ =\ std::dynamic\_pointer\_cast<T>(c);}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (t)}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_out.push\_back(t);}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ std::vector<std::shared\_ptr<Entity>>\ m\_entities;\ }
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ std::weak\_ptr<Core>\ m\_self;\ }
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ std::shared\_ptr<Window>\ m\_window;\ }
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ std::shared\_ptr<Audio>\ m\_audio;\ }
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ std::shared\_ptr<Resources>\ m\_resources;\ }
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ std::shared\_ptr<Input>\ m\_input;\ }
+\DoxyCodeLine{00099\ \ \ \ \ \};}
+\DoxyCodeLine{00100\ \}}
+
+\end{DoxyCode}

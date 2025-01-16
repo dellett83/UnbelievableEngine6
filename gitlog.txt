@@ -1,0 +1,113 @@
+commit ff89ae7a9546f4351b9465415ea3dcba800e7c38
+Author: Dan <danielellett@Hotmail.com>
+Date:   Wed Jan 15 18:32:31 2025 +0000
+
+    Added collision and rigidbody
+
+commit 909af6a0ef7dbeced90bc2131ec2ff8da1fbd74e
+Author: Dan <danielellett@Hotmail.com>
+Date:   Wed Jan 15 15:41:48 2025 +0000
+
+    Create logo.png
+
+commit d2e47d2945ba82c66ee6d7f8f716f6d3c9c219cb
+Author: Dan <danielellett@Hotmail.com>
+Date:   Mon Jan 13 17:05:14 2025 +0000
+
+    made it work audio
+
+commit 540bfbea6cfe4ed7d114f60212f58514549d43c3
+Author: Dan <danielellett@Hotmail.com>
+Date:   Mon Jan 13 14:48:37 2025 +0000
+
+    audio
+
+commit 09541b43afed685daddcb3c60e16a3c4994f15a4
+Author: Dan <danielellett@Hotmail.com>
+Date:   Thu Dec 19 13:13:53 2024 +0000
+
+    input works ish
+
+commit 34172f833ba71e86ed139fc06be8a84caeef30bf
+Author: Dan <danielellett@Hotmail.com>
+Date:   Tue Dec 17 12:56:50 2024 +0000
+
+    not killed myself yet
+
+commit 6011bb6a93be7db707b89199f12702a2fa4b21fa
+Author: Dan <danielellett@Hotmail.com>
+Date:   Fri Dec 6 13:12:47 2024 +0000
+
+    resources lowkey not working but lowkey working at the same time
+
+commit c316837e4869a658fb38c2df946431a268b0c029
+Author: Dan <danielellett@Hotmail.com>
+Date:   Mon Dec 2 17:16:06 2024 +0000
+
+    cat moment
+
+commit 9c3bf796b0e6bf613dc56a38e6946ff8c5801bc8
+Author: Dan <danielellett@Hotmail.com>
+Date:   Fri Nov 29 13:52:38 2024 +0000
+
+    gerard
+
+commit 6189e5ea4c779bce672ac2c96db2d67b3bb2d5d1
+Author: Dan <danielellett@Hotmail.com>
+Date:   Thu Nov 28 15:15:31 2024 +0000
+
+    catch up session going hard rn
+
+commit f946d17a67f5d8990efc7619b1aebfb806bbbaab
+Author: Dan <danielellett@Hotmail.com>
+Date:   Thu Nov 28 12:02:31 2024 +0000
+
+    lowkey i could push this
+
+commit d78824aad8473d4f35e4a098d9aee25ac4748bed
+Author: Dan <danielellett@Hotmail.com>
+Date:   Mon Nov 25 17:00:40 2024 +0000
+
+    shotgun in the mouth
+
+commit 9aec534c1e10ab6f477c68fbdd1abee3b83d26a0
+Author: Dan <danielellett@Hotmail.com>
+Date:   Tue Nov 19 12:58:08 2024 +0000
+
+    nearly working
+
+commit 5370238374da6b811767b9cb3f5e8bcfeb2dd180
+Author: Dan <danielellett@Hotmail.com>
+Date:   Wed Nov 13 15:25:43 2024 +0000
+
+    triangle nearly.
+
+commit 57da6956d1b5a5713bac9af739b5b42d06cd9e7a
+Author: Dan <danielellett@Hotmail.com>
+Date:   Tue Oct 22 13:00:08 2024 +0100
+
+    idk tbh
+
+commit ffd705e041c7b810fdf11f4e0a4fcef874d92b8e
+Author: Dan <danielellett@Hotmail.com>
+Date:   Tue Oct 15 12:47:48 2024 +0100
+
+    wk2.2
+
+commit 6f493b590df6519709e0f8b0e39fc52f6e4f549d
+Author: Dan <danielellett@Hotmail.com>
+Date:   Tue Oct 15 11:18:29 2024 +0100
+
+    Update main.cpp
+
+commit 3d18cd2c75e16aa65285624fd0b9df776a6302d9
+Author: Dan <danielellett@Hotmail.com>
+Date:   Tue Oct 8 12:59:34 2024 +0100
+
+    wk2
+
+commit dbbd2b993982414c1526b16a1c16f7b8657f61e9
+Author: Dan <danielellett@Hotmail.com>
+Date:   Mon Oct 7 11:57:25 2024 +0100
+
+    Initial commit

@@ -1,0 +1,40 @@
+\doxysection{Resources.\+h}
+\hypertarget{_resources_8h_source}{}\label{_resources_8h_source}\index{src/UnbelievableEngine6/Resources.h@{src/UnbelievableEngine6/Resources.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{namespace\ }UnbelievableEngine6}
+\DoxyCodeLine{00008\ \{}
+\DoxyCodeLine{00009\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{struct_unbelievable_engine6_1_1_resource}{Resource}};}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_unbelievable_engine6_1_1_resources}{Resources}}}
+\DoxyCodeLine{00012\ \ \ \ \ \{}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ std::shared\_ptr<T>\ load(\textcolor{keyword}{const}\ std::string\&\ \_path)}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ m\_resources.size();\ i++)}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (m\_resources[i]-\/>getPath()\ ==\ \_path)}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ std::dynamic\_pointer\_cast<T>(m\_resources.at(i));}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \ \ \ \ std::shared\_ptr<T>\ rtn\ =\ std::make\_shared<T>();}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \ \ \ \ rtn-\/>setPath(\textcolor{stringliteral}{"{}../assets/"{}}\ +\ \_path);}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \ \ \ \ rtn-\/>onLoad();}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \ \ \ \ m\_resources.push\_back(rtn);}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ rtn;}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ std::vector<std::shared\_ptr<Resource>>\ m\_resources;}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ \ \ \};}
+\DoxyCodeLine{00034\ \};}
+
+\end{DoxyCode}

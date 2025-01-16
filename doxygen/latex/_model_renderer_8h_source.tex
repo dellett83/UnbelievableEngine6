@@ -1,0 +1,32 @@
+\doxysection{Model\+Renderer.\+h}
+\hypertarget{_model_renderer_8h_source}{}\label{_model_renderer_8h_source}\index{src/UnbelievableEngine6/ModelRenderer.h@{src/UnbelievableEngine6/ModelRenderer.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}Component.h"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}UnbelievableEngine6/UnbelievableEngine6.h"{}}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{namespace\ }UnbelievableEngine6}
+\DoxyCodeLine{00008\ \{}
+\DoxyCodeLine{00009\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_unbelievable_engine6_1_1_model}{Model}};}
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_unbelievable_engine6_1_1_texture}{Texture}};}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keyword}{struct\ }ModelRenderer\ :\ \mbox{\hyperlink{struct_unbelievable_engine6_1_1_component}{Component}}}
+\DoxyCodeLine{00013\ \ \ \ \ \{}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ ModelRenderer();}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{struct_unbelievable_engine6_1_1_model_renderer_a4ef972010872f0426d60eb53deb2b3f3}{on\_initialize}}();}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\string~ModelRenderer();}}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{struct_unbelievable_engine6_1_1_model_renderer_a80626b3a997ac37b22b29d61c8ccb086}{on\_render}}();}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ setModel(std::shared\_ptr<Model>\ \_model);}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ setTex(std::shared\_ptr<Texture>\ \_tex);}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ std::shared\_ptr<Model>\ m\_model;}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ std::shared\_ptr<rend::Shader>\ m\_shader;}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ std::shared\_ptr<Texture>\ m\_texture;}
+\DoxyCodeLine{00025\ \ \ \ \ \};}
+\DoxyCodeLine{00026\ \}}
+
+\end{DoxyCode}

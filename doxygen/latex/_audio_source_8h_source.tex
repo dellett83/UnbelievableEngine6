@@ -1,0 +1,43 @@
+\doxysection{Audio\+Source.\+h}
+\hypertarget{_audio_source_8h_source}{}\label{_audio_source_8h_source}\index{src/UnbelievableEngine6/AudioSource.h@{src/UnbelievableEngine6/AudioSource.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}Component.h"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}Sound.h"{}}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <AL/al.h>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <AL/alc.h>}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{namespace\ }UnbelievableEngine6}
+\DoxyCodeLine{00013\ \{}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keyword}{class\ }AudioSource\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{struct_unbelievable_engine6_1_1_component}{Component}}}
+\DoxyCodeLine{00015\ \ \ \ \ \{}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ AudioSource();}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \string~AudioSource();}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ setSound(std::shared\_ptr<Sound>\ \_sound)\ \{\ m\_sound\ =\ \_sound;\ alSourcei(m\_SourceId,\ AL\_BUFFER,\ m\_sound-\/>m\_BufferId);\ \}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ IsPlaying();}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ OnTick();}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ Play();}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ std::shared\_ptr<Sound>\ m\_sound\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ ALenum\ m\_format\ =\ 0;}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ ALsizei\ m\_frequency\ =\ 0;}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ ALuint\ m\_BufferId\ =\ 0;}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ ALuint\ m\_SourceId;}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ m\_looping\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00036\ \ \ \ \ \};}
+\DoxyCodeLine{00037\ \};}
+
+\end{DoxyCode}
