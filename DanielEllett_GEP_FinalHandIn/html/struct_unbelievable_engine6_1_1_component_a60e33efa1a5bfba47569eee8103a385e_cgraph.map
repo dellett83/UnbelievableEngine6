@@ -1,0 +1,5 @@
+<map id="UnbelievableEngine6::Component::transform" name="UnbelievableEngine6::Component::transform">
+<area shape="rect" id="Node000001" title="Gets the transform component of the entity." alt="" coords="5,5,165,48"/>
+<area shape="rect" id="Node000002" href="$struct_unbelievable_engine6_1_1_component.html#acfff628ce8864e962e534889266c9f62" title="Gets the entity that this component is attached to." alt="" coords="213,5,356,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="165,24,197,24,197,29,165,29"/>
+</map>
